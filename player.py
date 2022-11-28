@@ -2,10 +2,10 @@ import pygame
 from constantes import *
 from auxiliar import Auxiliar
 from enemigo import *
-from disparos import Bala
+from disparos import *
 
 class Player:
-    def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height) -> None:
+    def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,vidas) -> None:
         self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1)#[:12]
         self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1,True)#[:12]
         self.stay_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Idle (32x32).png",11,1)
@@ -24,7 +24,7 @@ class Player:
         self.rect.x = x
         self.rect.y = y
         self.rect_ground_collition = pygame.Rect(self.rect.x + self.rect.w / 3, self.rect.y + self.rect.h - GROUND_RECT_H, self.rect.w / 3, GROUND_RECT_H)
-        self.rect_cuerpo = pygame.Rect(self.rect.x + self.rect.w / 2, self.rect.y , self.rect.h /2, self.rect.w / 2)
+        self.rect_cuerpo = pygame.Rect(x + 4, y + 5 , 25, 30)
         self.rect_manos = pygame.Rect(self.rect.x + self.rect.w /3 + 10, self.rect.y + 14, self.rect.w / 3,10)
         self.speed_walk =  speed_walk
         self.speed_run =  speed_run
@@ -37,11 +37,14 @@ class Player:
         self.move_x = 0
         self.move_y = 0
         self.tiempo_transcurrido = 0
-        self.vidas = 3
+        self.vidas = vidas
         self.tiempo_transcurrido_animation = 0
         self.tiempo_transcurrido_move = 0
         self.y_start_jump = 0
+        self.score = 0
         self.is_jump = False
+        self.vitality = True
+        self.bandera_restar_vidas = False
 
 
 #----------------------------------------------------------------------------------------MOVIMIENTOS
@@ -100,7 +103,7 @@ class Player:
             elif(self.is_jump): #Â SACAR
                 self.jump(False)
             
-            self.choque(lista_enemigos)
+            #self.choque(lista_enemigos)
 
     def is_on_platform(self,lista_plataformas):
         retorno = False
@@ -151,17 +154,19 @@ class Player:
         
 #-------------------------------------------------------------------------------------------------------------------FUNDIR EN LA PANTALLA
 
-    def update(self,delta_ms,lista_plataformas,lista_enemigos):
+    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish):
         self.do_movement(delta_ms,lista_plataformas,lista_enemigos)
         self.do_animation(delta_ms)
-    
+        self.lastimarse(lista_enemigos,delta_ms)
+        self.recolectar_frutas(lista_frutas)
+        self.lastimarse(lista_radish,delta_ms)
     
         
     
     def draw(self,screen):
         if(DEBUG):
-            pygame.draw.rect(screen,RED,self.rect)
-            pygame.draw.rect(screen,GREEN,self.rect_ground_collition)
+            #pygame.draw.rect(screen,RED,self.rect)
+            pygame.draw.rect(screen,GREEN,self.rect_cuerpo)
             pygame.draw.rect(screen,BLUE,self.rect_manos)
             #pygame.draw.rect(screen,GREEN,self.rect_cuerpo)
         self.image = self.animation[self.frame]
@@ -191,25 +196,33 @@ class Player:
                         self.add_x(6,"resta")
                     if enemigo.bandera_de_choque == False:
                         self.add_x(6,"suma")
-            
+
+
+    def recolectar_frutas(self,lista_frutas):
+        for fruta in lista_frutas:
+            if(self.rect_cuerpo.colliderect(fruta.rect_colision)) and fruta.recolectada:
+                self.score += 50
+                print("Aca entro")
+                fruta.recolectada = False
+                
                 
     def lastimarse(self,lista_enemigos,delta_ms):
+        
         self.tiempo_transcurrido += delta_ms
         for enemigo in lista_enemigos:
-            if(self.rect.colliderect(enemigo.rect) and self.tiempo_transcurrido >= 1200):  
+            if(self.rect.colliderect(enemigo.rect) and self.tiempo_transcurrido >= 1800) and enemigo.vitality:  
                 self.tiempo_transcurrido = 0
-                if self.vidas > 0:
+                if self.vidas > 1 and self.vitality:
                     self.vidas -= 1
-                    if(self.direction == DIRECTION_R):
-                        self.animation = self.get_hit_r
-                    else:
-                        self.animation = self.get_hit_l
-                else:
-                    if(self.direction == DIRECTION_R):
-                        self.animation = self.die_r
-                    else:
-                        self.animation = self.die_l
-
+                    self.bandera_restar_vidas = True
+                    print("perdiste una vida")
+                elif self.vidas == 1 and self.vitality:
+                    self.vidas -= 1
+                    self.vitality = False
+                    self.bandera_restar_vidas = True
+                    print("perdiste las 3")
+        
+    
                     
                     
 

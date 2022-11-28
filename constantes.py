@@ -5,7 +5,7 @@ FPS = 60
 DIRECTION_L = 0
 DIRECTION_R = 1
 
-DEBUG = True
+DEBUG = False
 
 RED = (255,0,0)
 GREEN = (0,255,0)
