@@ -142,6 +142,7 @@ class TrunkPatrulla():
         self.tiempo_acumulado = 0
         self.numero_aleatorio = 0
         self.cargador = []
+        self.balas_usadas = []
         
 #------------------------------------------------------------------------------------------------------------------MOVIMIENTO
 

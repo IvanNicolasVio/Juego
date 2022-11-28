@@ -101,8 +101,8 @@ class lista_balas_enemigas():
         self.bandera_z = False
         self.tiempo_acumulado = 0
 
-    def crear_balas(self,lista_de_enemigos):
-        for enemigo in lista_de_enemigos:
+    def crear_balas(self,enemigo):
+        if enemigo.cargador == []:
             enemigo.cargador.append(Bala(0,0,5))
 
 
@@ -110,8 +110,8 @@ class lista_balas_enemigas():
         self.lista_balas_en_cargador = self.crear_balas(lista_de_enemigos)
 
             
-    def dibujar_balas(self,screen):
-        for bala in self.lista_balas_usadas:
+    def dibujar_balas(self,screen,enemigo):
+        for bala in enemigo.balas_usadas:
             if bala.bandera_disp == True:
                 bala.draw(screen)
                 if bala.direccion_disp == DIRECTION_L:
@@ -123,10 +123,12 @@ class lista_balas_enemigas():
                     
 
     def update(self,enemigo,screen,jugador,lista_de_enemigos,delta_ms):
-        for enemigo in lista_de_enemigos:
-            self.crear_balas(lista_de_enemigos)
-        self.dibujar_balas(screen)
+        self.tiempo_acumulado += delta_ms 
+        if self.tiempo_acumulado > 1800:
+            self.tiempo_acumulado = 0
+            self.crear_balas(enemigo)
         self.disparar_balas(enemigo)
+        self.dibujar_balas(screen,enemigo)
         self.eventos(lista_de_enemigos,jugador,delta_ms)
         #self.recargar()
         #self.kill(jugador,delta_ms)
@@ -143,17 +145,13 @@ class lista_balas_enemigas():
             bala_disparada.rect.y = enemigo.rect_boca.y
             bala_disparada.bandera_disp = True
             bala_disparada.direccion_disp = enemigo.direction
-            self.lista_balas_usadas.append(bala_disparada)
+            enemigo.balas_usadas.append(bala_disparada)
             
             #print("Disparo")
         else:
             enemigo.bandera_para_disparar = False       
       
     def eventos(self,lista_de_enemigos,jugador,delta_ms):
-
-        self.tiempo_acumulado += delta_ms
-        if self.tiempo_acumulado > 1800:
-            self.tiempo_acumulado = 0
             for enemigo in lista_de_enemigos:
                 if enemigo.poder_disparar:
                     if enemigo.rect_disparo_r.colliderect(jugador.rect_cuerpo) or enemigo.rect_disparo_l.colliderect(jugador.rect_cuerpo):
