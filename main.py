@@ -3,8 +3,8 @@ import sys
 from constantes import *
 from player import Player
 from plataforma import *
-from enemigo import *   
-from disparos import *
+from enemigos_2 import *   
+from disparos_3 import *
 from coleccionables import *
 from mostrables import *
 from generador_enemigos import *

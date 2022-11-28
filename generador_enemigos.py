@@ -1,9 +1,9 @@
 import pygame
 from constantes import *
 from auxiliar import Auxiliar
-from disparos import *
+from disparos_3 import *
 import random
-from enemigo import *
+from enemigos_2 import *
 
         
 

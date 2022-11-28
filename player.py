@@ -1,8 +1,8 @@
 import pygame
 from constantes import *
 from auxiliar import Auxiliar
-from enemigo import *
-from disparos import *
+from enemigos_2 import *
+from disparos_3 import *
 
 class Player:
     def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,vidas) -> None:
