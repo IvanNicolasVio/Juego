@@ -24,10 +24,14 @@ class Finalizador():
         return self.retorno
 
 
-    def update(self,delta_ms,screen):
-
-        self.finalizar_juego(delta_ms)
-
+    def tiempo_de_nivel(self,screen):
         fuente = pygame.font.SysFont("Arial",30)
         texto = fuente.render("Tiempo restante: {0}".format(self.tiempo_de_juego),True,(0,0,0))
         screen.blit(texto,(1200,30))
+
+
+    def update(self,delta_ms,screen):
+
+        self.tiempo_de_nivel(screen)
+        self.retorno = self.finalizar_juego(delta_ms)
+        return self.retorno

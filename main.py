@@ -10,6 +10,8 @@ from mostrables import *
 from generador_enemigos import *
 from finalizador_juego import *
 
+tiempo_acumulado = 0
+
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 pygame.init()
 clock = pygame.time.Clock()
@@ -62,24 +64,26 @@ while True:
 
     finalizador = finalizador_juego.update(delta_ms,screen)
 
+    if not finalizador or player_1.vidas == 0:
+        pass
+    else:
+        for plataforma in lista_plataformas:
+            plataforma.draw(screen)
 
-    for plataforma in lista_plataformas:
-        plataforma.draw(screen)
+        lista_frutas = frutas.update(lista_plataformas,screen)
+        lista_trunk = trunk.update(lista_plataformas,screen,delta_ms,player_1)
+        lista_radish = radish.update(delta_ms,lista_plataformas,screen,player_1)
 
-    lista_frutas = frutas.update(lista_plataformas,screen)
-    lista_trunk = trunk.update(lista_plataformas,screen,delta_ms,player_1)
-    lista_radish = radish.update(delta_ms,lista_plataformas,screen,player_1)
+        for enemigo in lista_trunk:
+            lista_balas_de_enemigo = lista_de_balas_enemigos.update(enemigo,screen,player_1,lista_trunk,delta_ms)
 
-    for enemigo in lista_trunk:
-        lista_balas_de_enemigo = lista_de_balas_enemigos.update(enemigo,screen,player_1,lista_trunk,delta_ms)
+        if player_1.vitality:
+            player_1.events(keys)
+            player_1.update(delta_ms,lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo)
+            player_1.draw(screen)
+            lista_para_contar_balas = lista_de_balas.update(player_1,events,screen,lista_trunk,lista_radish)
 
-    if player_1.vitality:
-        player_1.events(keys)
-        player_1.update(delta_ms,lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo)
-        player_1.draw(screen)
-        lista_para_contar_balas = lista_de_balas.update(player_1,events,screen,lista_trunk,lista_radish)
-
-    items_en_pantalla.update(screen,player_1,delta_ms)
+        items_en_pantalla.update(screen,player_1,delta_ms)
 
 
         

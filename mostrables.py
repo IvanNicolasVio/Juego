@@ -51,14 +51,14 @@ class items_pantalla():
                 jugador.bandera_restar_vidas = False
                 self.lista_vidas.remove(vida)
 
-    def tiempo_de_nivel(self,delta_ms,screen):
-        self.tiempo_transcurrido += delta_ms
-        if self.tiempo_transcurrido > 3400:
-            self.tiempo_de_juego -= 1
-            self.tiempo_transcurrido = 0
-        fuente = pygame.font.SysFont("Arial",30)
-        texto = fuente.render("Tiempo restante: {0}".format(self.tiempo_de_juego),True,(0,0,0))
-        screen.blit(texto,(1200,30))
+    # def tiempo_de_nivel(self,delta_ms,screen):
+    #     self.tiempo_transcurrido += delta_ms
+    #     if self.tiempo_transcurrido > 3400:
+    #         self.tiempo_de_juego -= 1
+    #         self.tiempo_transcurrido = 0
+    #     fuente = pygame.font.SysFont("Arial",30)
+    #     texto = fuente.render("Tiempo restante: {0}".format(self.tiempo_de_juego),True,(0,0,0))
+    #     screen.blit(texto,(1200,30))
            
     
 
@@ -77,7 +77,7 @@ class items_pantalla():
         texto = fuente.render("Score: {0}".format(jugador.score),True,(0,0,0))
         screen.blit(texto,(1200,0))
 
-        self.tiempo_de_nivel(delta_ms,screen)
+        #self.tiempo_de_nivel(delta_ms,screen)
             
         return self.lista_vidas
         
