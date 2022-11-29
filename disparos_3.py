@@ -12,6 +12,7 @@ class Bala():
         self.speed = speed
         self.bandera_disp = False
         self.direccion_disp = DIRECTION_R
+        self.vitality = True
 
     def draw(self,screen):
         if(DEBUG):
@@ -112,14 +113,15 @@ class lista_balas_enemigas():
             
     def dibujar_balas(self,screen,enemigo):
         for bala in enemigo.balas_usadas:
-            if bala.bandera_disp == True:
-                bala.draw(screen)
-                if bala.direccion_disp == DIRECTION_L:
-                    bala.rect_colide.x += bala.speed
-                    bala.rect.x += bala.speed
-                else:
-                    bala.rect_colide.x -= bala.speed
-                    bala.rect.x -= bala.speed
+            if bala.vitality:
+                if bala.bandera_disp == True:
+                    bala.draw(screen)
+                    if bala.direccion_disp == DIRECTION_L:
+                        bala.rect_colide.x += bala.speed
+                        bala.rect.x += bala.speed
+                    else:
+                        bala.rect_colide.x -= bala.speed
+                        bala.rect.x -= bala.speed
                     
 
     def update(self,enemigo,screen,jugador,lista_de_enemigos,delta_ms):
@@ -146,6 +148,7 @@ class lista_balas_enemigas():
             bala_disparada.bandera_disp = True
             bala_disparada.direccion_disp = enemigo.direction
             enemigo.balas_usadas.append(bala_disparada)
+            self.lista_balas_usadas.append(bala_disparada)
             
             #print("Disparo")
         else:

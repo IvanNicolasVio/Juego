@@ -70,16 +70,17 @@ while True:
     lista_trunk = trunk.update(lista_plataformas,screen,delta_ms,player_1)
     lista_radish = radish.update(delta_ms,lista_plataformas,screen,player_1)
 
+    for enemigo in lista_trunk:
+        lista_balas_de_enemigo = lista_de_balas_enemigos.update(enemigo,screen,player_1,lista_trunk,delta_ms)
+
     if player_1.vitality:
         player_1.events(keys)
-        player_1.update(delta_ms,lista_plataformas,lista_trunk,lista_frutas,lista_radish)
+        player_1.update(delta_ms,lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo)
         player_1.draw(screen)
         lista_para_contar_balas = lista_de_balas.update(player_1,events,screen,lista_trunk,lista_radish)
 
     items_en_pantalla.update(screen,player_1,delta_ms)
 
-    for enemigo in lista_trunk:
-        lista_de_balas_enemigos.update(enemigo,screen,player_1,lista_trunk,delta_ms)
 
         
     pygame.display.flip()

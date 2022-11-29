@@ -45,6 +45,7 @@ class Player:
         self.is_jump = False
         self.vitality = True
         self.bandera_restar_vidas = False
+        self.bandera_lastimarse = False
 
 
 #----------------------------------------------------------------------------------------MOVIMIENTOS
@@ -154,12 +155,6 @@ class Player:
         
 #-------------------------------------------------------------------------------------------------------------------FUNDIR EN LA PANTALLA
 
-    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish):
-        self.do_movement(delta_ms,lista_plataformas,lista_enemigos)
-        self.do_animation(delta_ms)
-        self.lastimarse(lista_enemigos,delta_ms)
-        self.recolectar_frutas(lista_frutas)
-        self.lastimarse(lista_radish,delta_ms)
     
         
     
@@ -206,23 +201,44 @@ class Player:
                 fruta.recolectada = False
                 
                 
-    def lastimarse(self,lista_enemigos,delta_ms):
+    def lastimarse(self):
         
+        if self.vidas > 1 and self.vitality and self.bandera_lastimarse:
+            self.vidas -= 1
+            self.bandera_restar_vidas = True
+            self.bandera_lastimarse = False
+            print("perdiste una vida")
+        elif self.vidas == 1 and self.vitality and self.bandera_lastimarse:
+            self.vidas -= 1
+            self.vitality = False
+            self.bandera_restar_vidas = True
+            self.bandera_lastimarse = False
+            print("perdiste las 3")
+
+    def colisionar_con_enemigos(self,lista_enemigos,delta_ms):
         self.tiempo_transcurrido += delta_ms
         for enemigo in lista_enemigos:
             if(self.rect.colliderect(enemigo.rect) and self.tiempo_transcurrido >= 1800) and enemigo.vitality:  
                 self.tiempo_transcurrido = 0
-                if self.vidas > 1 and self.vitality:
-                    self.vidas -= 1
-                    self.bandera_restar_vidas = True
-                    print("perdiste una vida")
-                elif self.vidas == 1 and self.vitality:
-                    self.vidas -= 1
-                    self.vitality = False
-                    self.bandera_restar_vidas = True
-                    print("perdiste las 3")
+                self.bandera_lastimarse = True
+        
+    def colisionar_con_balas(self,lista_balas,delta_ms):
+        self.tiempo_transcurrido += delta_ms
+        for bala in lista_balas:
+            if(self.rect.colliderect(bala.rect_colide) and self.tiempo_transcurrido >= 1800):  
+                self.tiempo_transcurrido = 0
+                self.bandera_lastimarse = True
+                bala.vitality = False
         
     
+    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish,lista_balas):
+        self.do_movement(delta_ms,lista_plataformas,lista_enemigos)
+        self.do_animation(delta_ms)
+        self.lastimarse()
+        self.recolectar_frutas(lista_frutas)
+        self.colisionar_con_enemigos(lista_enemigos,delta_ms)
+        self.colisionar_con_enemigos(lista_radish,delta_ms)
+        self.colisionar_con_balas(lista_balas,delta_ms)
                     
                     
 
