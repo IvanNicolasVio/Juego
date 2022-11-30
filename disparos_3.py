@@ -105,11 +105,6 @@ class lista_balas_enemigas():
     def crear_balas(self,enemigo):
         if enemigo.cargador == []:
             enemigo.cargador.append(Bala(0,0,5))
-
-
-    def recargar(self,lista_de_enemigos):
-        self.lista_balas_en_cargador = self.crear_balas(lista_de_enemigos)
-
             
     def dibujar_balas(self,screen,enemigo):
         for bala in enemigo.balas_usadas:
@@ -153,7 +148,8 @@ class lista_balas_enemigas():
             #print("Disparo")
         else:
             enemigo.bandera_para_disparar = False       
-      
+
+
     def eventos(self,lista_de_enemigos,jugador,delta_ms):
             for enemigo in lista_de_enemigos:
                 if enemigo.poder_disparar:
@@ -170,3 +166,5 @@ class lista_balas_enemigas():
                     self.tiempo_acumulado = 0
                     self.lista_balas_usadas.remove(bala)
                     jugador.vidas -= 1
+            else:
+                self.lista_balas_usadas.remove(bala)

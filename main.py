@@ -39,7 +39,7 @@ lista_plataformas.append(Platform(900,70,100,50,1))#5
 
 player_1 = Player(x=0,y=591,speed_walk=4,speed_run=8,gravity=8,jump_power=25,frame_rate_ms=80,move_rate_ms=10,jump_height=150,vidas=3)
 
-lista_de_balas = lista_balas(5)
+lista_de_balas = lista_balas(3)
 lista_de_balas_enemigos = lista_balas_enemigas(1)
 frutas = Frutas()
 trunk = Generador_trunk(5,8)
@@ -65,7 +65,10 @@ while True:
     finalizador = finalizador_juego.update(delta_ms,screen)
 
     if not finalizador or player_1.vidas == 0:
-        pass
+        fuente = pygame.font.SysFont("Arial",100)
+        texto = fuente.render("Score: {0}".format(player_1.score),True,(0,0,0))
+        screen.blit(texto,(500,330))
+
     else:
         for plataforma in lista_plataformas:
             plataforma.draw(screen)

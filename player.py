@@ -225,7 +225,7 @@ class Player:
     def colisionar_con_balas(self,lista_balas,delta_ms):
         self.tiempo_transcurrido += delta_ms
         for bala in lista_balas:
-            if(self.rect.colliderect(bala.rect_colide) and self.tiempo_transcurrido >= 1800):  
+            if(self.rect.colliderect(bala.rect_colide) and self.tiempo_transcurrido >= 1800) and bala.vitality:  
                 self.tiempo_transcurrido = 0
                 self.bandera_lastimarse = True
                 bala.vitality = False
