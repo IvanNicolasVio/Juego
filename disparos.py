@@ -4,7 +4,7 @@ from auxiliar import Auxiliar
 
 class Bala():
     def __init__(self,x,y,speed) -> None:
-        self.shoot = pygame.image.load("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Skull\\Red Particle.png")
+        self.shoot = pygame.image.load("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Skull\\Red Particle.png")
         self.rect = self.shoot.get_rect()
         self.rect.x = x 
         self.rect.y = y  

@@ -6,16 +6,16 @@ from disparos_3 import *
 
 class Player:
     def __init__(self,x,y,speed_walk,speed_run,gravity,jump_power,frame_rate_ms,move_rate_ms,jump_height,vidas) -> None:
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1)#[:12]
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1,True)#[:12]
-        self.stay_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Idle (32x32).png",11,1)
-        self.stay_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Idle (32x32).png",11,1,True)
-        self.jump_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Jump (32x32).png",1,1,False,2)
-        self.jump_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Jump (32x32).png",1,1,True,2)
-        self.get_hit_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Hit (32x32).png",7,1,False)
-        self.get_hit_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Hit (32x32).png",7,1)
-        self.die_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Desappearing (96x96).png",6,1,True)
-        self.die_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Desappearing (96x96).png",6,1)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1)#[:12]
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Run (32x32).png",12,1,True)#[:12]
+        self.stay_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Idle (32x32).png",11,1)
+        self.stay_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Idle (32x32).png",11,1,True)
+        self.jump_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Jump (32x32).png",1,1,False,2)
+        self.jump_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Jump (32x32).png",1,1,True,2)
+        self.get_hit_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Hit (32x32).png",7,1,False)
+        self.get_hit_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Pink Man\\Hit (32x32).png",7,1)
+        self.die_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Desappearing (96x96).png",6,1,True)
+        self.die_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Main Characters\\Desappearing (96x96).png",6,1)
         self.animation = self.stay_r
         self.direction = DIRECTION_R
         self.frame = 0

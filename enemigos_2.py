@@ -111,12 +111,12 @@ class Radish():
 
 class TrunkPatrulla():
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
-        self.idle_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1)
-        self.idle_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1,True)
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1,True)
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1)
-        self.atk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1,True)
-        self.atk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1)
+        self.idle_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1)
+        self.idle_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1,True)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1,True)
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1)
+        self.atk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1,True)
+        self.atk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1)
         self.frame = 0
         self.animation = self.walk_r
         self.image = self.animation[self.frame]

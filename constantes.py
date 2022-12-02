@@ -15,4 +15,4 @@ GROUND_RECT_H = 5
 GROUND_LEVEL = 591
 
 
-PATH_IMAGE = "C:\\Users\\Iván\\Desktop\\Python_UTN\\CLASE_19_inicio_juego\\images"
+PATH_IMAGE = "C:\\Users\\Ivan\\Desktop\\Python_UTN\\CLASE_19_inicio_juego\\images"

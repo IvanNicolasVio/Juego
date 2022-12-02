@@ -8,8 +8,8 @@ import random
 
 class Radish():
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1,True)
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1,True)
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1)
         self.frame = 0
         self.animation = self.walk_r
         self.image = self.animation[self.frame]

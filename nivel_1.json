@@ -1,7 +1,7 @@
 {
     "nivel_1":{
 
-        "imagen_fondo": "C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png",
+        "imagen_fondo": "C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png",
         
         "parametros_plataformas":
         [
@@ -34,6 +34,12 @@
             "move_rate_ms": 10,
             "jump_height": 150,
             "vidas": 3
+        },
+
+        "cantidad_balas":
+        {
+            "jugador": 3,
+            "enemigo": 1
         },
 
         "trunk":

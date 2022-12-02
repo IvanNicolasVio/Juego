@@ -8,7 +8,7 @@ from auxiliar import Auxiliar
 class Platform:
     
     def __init__(self,x,y,w,h,type=0):
-        self.image = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\first_images\\tile\\sheet1.png",8,8)[type]
+        self.image = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\first_images\\tile\\sheet1.png",8,8)[type]
         self.image = pygame.transform.scale(self.image,(w,h))
         self.rect = self.image.get_rect()
         self.rect.x = x

@@ -6,7 +6,7 @@ from auxiliar import Auxiliar
 
 class Manzana():
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
