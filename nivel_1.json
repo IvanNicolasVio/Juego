@@ -1,7 +1,7 @@
 {
     "nivel_1":{
 
-        "imagen_fondo": "C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png",
+        "imagen_fondo": "C:/Users/Iván/Desktop/Python_UTN/Juego/first_images/locations/city/all.png",
         
         "parametros_plataformas":
         [
@@ -55,7 +55,7 @@
             "y": 590,
             "speed": 8,
             "tope_izq": 0,
-            "tope_der": "ANCHO_VENTANA",
+            "tope_der": 1500,
             "gravity": 8
         }
 

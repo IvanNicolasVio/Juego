@@ -32,7 +32,7 @@ class Nivel():
 
         
     def leer_archivo(self):
-        with open("nivel_1.json", "r") as configuraciones:
+        with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
             return json.load(configuraciones)
 
     def crear_plataformas(self):
@@ -44,7 +44,7 @@ class Nivel():
         imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
         imagen_fondo = pygame.transform.scale(imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
 
-        screen.blit(self.imagen_fondo,imagen_fondo.get_rect())
+        screen.blit(imagen_fondo,imagen_fondo.get_rect())
 
         self.crear_plataformas()
 
