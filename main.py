@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 pygame.init()
 clock = pygame.time.Clock()
 
-imagen_fondo = pygame.image.load("C:\\Users\\Ivan\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png")
+imagen_fondo = pygame.image.load("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png")
 imagen_fondo = pygame.transform.scale(imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
 
 
