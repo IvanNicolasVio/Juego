@@ -60,5 +60,108 @@
         }
 
     }
+    ,
+    "nivel_2":{
+        "imagen_fondo": "C:\\Users\\Iván\\Desktop\\Juego\\first_images\\locations\\forest\\all.png",
+        
+        "parametros_plataformas":
+        [
+            [1200,50,200,50,1],
+            [1000,150,200,50,1],
+            [800,250,200,50,1],
+            [600,350,200,50,1],
+            [400,450,200,50,1],
+            [200,550,200,50,1]
+        ],
+
+        "player_1": 
+        {
+            "x": 0,
+            "y": 590,
+            "speed_walk": 4,
+            "speed_run": 8,
+            "gravity": 8,
+            "jump_power": 25,
+            "frame_rate_ms": 80,
+            "move_rate_ms": 10,
+            "jump_height": 150,
+            "vidas": 5
+        },
+
+        "cantidad_balas":
+        {
+            "jugador": 3,
+            "enemigo": 1
+        },
+
+        "trunk":
+        {
+            "speed_walk": 5,
+            "gravity": 8
+        },
+
+        "radish":
+        {
+            "cantidad": 4,
+            "x": 1200,
+            "y": 30,
+            "speed": 8,
+            "tope_izq": 0,
+            "tope_der": 1500,
+            "gravity": 8
+        }
+    }
+    ,
+    "nivel_3":{
+        "imagen_fondo": "C:\\Users\\Iván\\Desktop\\Juego\\first_images\\locations\\mountain\\all.png",
+        
+        "parametros_plataformas":
+        [
+            [100,500,200,50,1],
+            [1200,500,200,50,1],
+            [300,400,200,50,1],
+            [1000,400,200,50,1],
+            [500,290,200,50,1],
+            [800,290,200,50,1],
+            [0,630,1500,50,1]
+        ],
+
+        "player_1": 
+        {
+            "x": 0,
+            "y": 590,
+            "speed_walk": 4,
+            "speed_run": 8,
+            "gravity": 8,
+            "jump_power": 25,
+            "frame_rate_ms": 80,
+            "move_rate_ms": 10,
+            "jump_height": 150,
+            "vidas": 3
+        },
+
+        "cantidad_balas":
+        {
+            "jugador": 3,
+            "enemigo": 1
+        },
+
+        "trunk":
+        {
+            "speed_walk": 5,
+            "gravity": 8
+        },
+
+        "radish":
+        {
+            "cantidad": 1,
+            "x": 1800,
+            "y": 590,
+            "speed": 8,
+            "tope_izq": 0,
+            "tope_der": 1500,
+            "gravity": 8
+        }
+    }
     
 }

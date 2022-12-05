@@ -29,6 +29,7 @@ class Nivel():
         self.radish = Generador_radish(self.parametro_radish["cantidad"],self.parametro_radish["x"],self.parametro_radish["y"],self.parametro_radish["speed"],self.parametro_radish["tope_izq"],self.parametro_radish["tope_der"],self.parametro_radish["gravity"])
         self.items_en_pantalla  = items_pantalla(0,0,self.player_1.vidas)
         self.finalizador_juego = Finalizador()
+        self.imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
 
         
     def leer_archivo(self):
@@ -41,16 +42,15 @@ class Nivel():
 
     def generar_nivel(self,screen):
 
-        imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
-        imagen_fondo = pygame.transform.scale(imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
+        #imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
+        self.imagen_fondo = pygame.transform.scale(self.imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
 
-        screen.blit(imagen_fondo,imagen_fondo.get_rect())
 
         self.crear_plataformas()
 
     def update(self,delta_ms,screen,keys,events):
-        self.generar_nivel(screen)
-
+        
+        screen.blit(self.imagen_fondo,self.imagen_fondo.get_rect())
         finalizador = self.finalizador_juego.update(delta_ms,screen)
 
         if not finalizador or self.player_1.vidas == 0:

@@ -55,8 +55,6 @@ class Radish():
         if accion == "suma":
             self.rect.y += delta_y
             self.rect_colision.y += delta_y
-            self.rect_cuerpo.y += delta_y
-            self.rect_manos.y += delta_y
         elif accion == "resta":
             self.rect.y -= delta_y
             self.rect_colision.y -= delta_y  
@@ -67,7 +65,7 @@ class Radish():
             retorno = True
         else:
             for plataforma in lista_plataformas:
-                if(self.rect_colision(plataforma.rect_ground_collition)):
+                if(self.rect_colision.colliderect(plataforma.rect_ground_collition)):
                     retorno = True
                     break   
         return retorno

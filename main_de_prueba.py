@@ -16,8 +16,8 @@ tiempo_acumulado = 0
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 pygame.init()
 clock = pygame.time.Clock()
-
-nivel_1 = Nivel("nivel_1")
+nivel_1 = Nivel("nivel_3")
+nivel_1.generar_nivel(screen)
 
 while True:
     events = pygame.event.get()
@@ -35,5 +35,4 @@ while True:
     
     nivel_1.update(delta_ms,screen,keys,events)
 
-        
     pygame.display.flip()
