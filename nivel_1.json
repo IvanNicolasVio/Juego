@@ -148,7 +148,7 @@
 
         "trunk":
         {
-            "speed_walk": 5,
+            "speed_walk": 3,
             "gravity": 8
         },
 
@@ -157,7 +157,7 @@
             "cantidad": 1,
             "x": 1800,
             "y": 590,
-            "speed": 8,
+            "speed": 4,
             "tope_izq": 0,
             "tope_der": 1500,
             "gravity": 8
