@@ -9,9 +9,11 @@ from coleccionables import *
 from mostrables import *
 from generador_enemigos import *
 from finalizador_juego import *
+from boton import *
+from form import *
 
 class Nivel():
-    def __init__(self,nivel) -> None:
+    def __init__(self,nivel,menu_perder,menu_pausa,screen) -> None:
         self.nivel = nivel
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
@@ -30,7 +32,8 @@ class Nivel():
         self.items_en_pantalla  = items_pantalla(0,0,self.player_1.vidas)
         self.finalizador_juego = Finalizador()
         self.imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
-
+        self.menu_perder = menu_perder
+        self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
         
     def leer_archivo(self):
         with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
@@ -40,7 +43,10 @@ class Nivel():
         for parametro in self.parametro_plataformas:
             self.lista_plataformas.append(Platform(parametro[0],parametro[1],parametro[2],parametro[3],parametro[4]))
 
-    def generar_nivel(self,screen):
+    def delete_level(self):
+        self.imagen_fondo = None
+
+    def generar_nivel(self):
 
         #imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
         self.imagen_fondo = pygame.transform.scale(self.imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
@@ -48,7 +54,7 @@ class Nivel():
 
         self.crear_plataformas()
 
-    def update(self,delta_ms,screen,keys,events):
+    def update(self,delta_ms,screen,keys,events,lista_eventos):
         
         screen.blit(self.imagen_fondo,self.imagen_fondo.get_rect())
         finalizador = self.finalizador_juego.update(delta_ms,screen)
@@ -57,6 +63,7 @@ class Nivel():
             fuente = pygame.font.SysFont("Arial",100)
             texto = fuente.render("Score: {0}".format(self.player_1.score),True,(0,0,0))
             screen.blit(texto,(500,330))
+            self.menu_perder.active = True
 
         else:
             for plataforma in self.lista_plataformas:
@@ -77,4 +84,5 @@ class Nivel():
 
             self.items_en_pantalla.update(screen,self.player_1,delta_ms)
 
-        
+        self.boton1.update(lista_eventos)
+        self.boton1.draw(screen)
