@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="")
 menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 menu_perder = MenuPerder(name="menu_perder",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
-menu_score = MenuScore(name="menu_score",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
+menu_score = MenuScore(name="menu_score",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 menu_pausa = MenuPausa(name="menu_pausa",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 
 
@@ -65,7 +65,7 @@ while True:
         if menu_principal.nivel != "":
             if menu_principal.bandera_nivel:
                 nivel_1 = Nivel(menu_principal.nivel,menu_perder,menu_pausa,screen)
-                nivel_1.generar_nivel()
+                player = nivel_1.generar_nivel()
                 menu_principal.bandera_nivel = False
             nivel_1.update(delta_ms,screen,keys,lista_eventos,lista_eventos)
             

@@ -53,6 +53,7 @@ class Nivel():
 
 
         self.crear_plataformas()
+        return self.player_1
 
     def update(self,delta_ms,screen,keys,events,lista_eventos):
         
