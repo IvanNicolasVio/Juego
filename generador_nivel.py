@@ -68,7 +68,7 @@ class Nivel():
 
         if not finalizador or self.player_1.vidas == 0:
             fuente = pygame.font.SysFont("Arial",100)
-            texto = fuente.render("Score: {0}".format(self.player_1.score),True,(0,0,0))
+            texto = fuente.render("Score: {0}".format(self.player_1.score),True,RED)
             screen.blit(texto,(500,130))
             self.menu_perder.active = True
             #self.bandera_nivel_terminado = True
