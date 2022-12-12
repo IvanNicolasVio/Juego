@@ -20,7 +20,7 @@ flags = DOUBLEBUF
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
 pygame.init()
 clock = pygame.time.Clock()
-sonido = Sound()
+sonido = Sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
 menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="")
 menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
 menu_opciones_in_game = MenuOpcionesInGame(name="opciones_in_game",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
@@ -51,25 +51,32 @@ while True:
         menu_principal.update(lista_eventos)
         menu_principal.draw()
         menu_principal.bandera_nivel = True
+        sonido.cancion.stop()
     elif(menu_opciones.active):
         menu_opciones.update(lista_eventos)
         menu_opciones.draw()
+        sonido.cancion.stop()
     elif(menu_opciones_in_game.active):
         menu_opciones_in_game.update(lista_eventos)
         menu_opciones_in_game.draw()
     elif(menu_perder.active):
         menu_perder.update(lista_eventos)
         menu_perder.draw()
+        sonido.cancion.stop()
     elif(menu_score.active):
         menu_score.update(lista_eventos)
         menu_score.draw()
+        sonido.cancion.stop()
     elif(menu_pausa.active):
         menu_pausa.update(lista_eventos)
         menu_pausa.draw()
+        sonido.cancion.set_volume(0.0)
     else:
+        if not menu_pausa.active:
+            sonido.cancion.set_volume(0.1)
         if menu_principal.nivel != "":
             if menu_principal.bandera_nivel:
-                nivel_1 = Nivel(menu_principal.nivel,menu_perder,menu_pausa,screen,sonido)
+                nivel_1 = Nivel(menu_principal.nivel,menu_perder,menu_pausa,screen,sonido,sonido.cancion)
                 player = nivel_1.generar_nivel()
                 menu_principal.bandera_nivel = False
             nivel_1.update(delta_ms,screen,keys,lista_eventos,lista_eventos)

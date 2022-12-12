@@ -14,7 +14,7 @@ from form import *
 from sounds import *
 
 class Nivel():
-    def __init__(self,nivel,menu_perder,menu_pausa,screen,sonido) -> None:
+    def __init__(self,nivel,menu_perder,menu_pausa,screen,sonido,cancion) -> None:
         self.nivel = nivel
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
@@ -36,7 +36,7 @@ class Nivel():
         self.menu_perder = menu_perder
         self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
         self.sonido = sonido
-        self.cancion = 0
+        self.cancion = cancion
 
     def leer_archivo(self):
         with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
@@ -53,7 +53,7 @@ class Nivel():
 
 
         self.crear_plataformas()
-        self.cancion = self.sonido.play_music("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
+        self.sonido.play_music(self.cancion)
         
         return self.player_1
 

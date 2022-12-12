@@ -120,7 +120,7 @@ class MenuOpciones(Form):
 
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
         self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
-        self.boton3 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton3 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton4,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
         self.lista_widget = [self.boton1,self.boton2,self.boton3]
         
     def on_click_boton1(self, parametro):
@@ -128,6 +128,9 @@ class MenuOpciones(Form):
 
     def on_click_boton2(self,parametro):#fix
         self.sound.on_off_sound(parametro)
+    
+    def on_click_boton4(self,parametro):
+        self.sound.on_off_music(parametro)
         
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
@@ -146,7 +149,7 @@ class MenuOpcionesInGame(Form):
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
         self.boton2 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
         self.boton3 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton3,on_click_param="soubd",text="REANUDAR",font="Verdana",font_size=30,font_color=WHITE)
-        self.boton4 = Button(master=self,x=50,y=350,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton4 = Button(master=self,x=50,y=350,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton4,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
         self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4]
         
     def on_click_boton1(self, parametro):
@@ -158,6 +161,9 @@ class MenuOpcionesInGame(Form):
     def on_click_boton3(self, parametro):
         for aux_form in self.forms_dict.values():
             aux_form.active = False
+
+    def on_click_boton4(self,parametro):
+        self.sound.on_off_music(parametro)
             
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:

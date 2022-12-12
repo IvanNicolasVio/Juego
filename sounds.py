@@ -4,10 +4,11 @@ from pygame import mixer
 
 
 class Sound():
-    def __init__(self) -> None:
+    def __init__(self,path) -> None:
         mixer.init()
         self.sonidos_on_off = True
         self.musica_on_off = True
+        self.cancion = pygame.mixer.Sound(path)
     
     def play_sound(self,path):
         sound = pygame.mixer.Sound(path)
@@ -15,8 +16,7 @@ class Sound():
             sound.set_volume(0.2)
             sound.play()
 
-    def play_music(self,path):
-        sound = pygame.mixer.Sound(path)
+    def play_music(self,sound):
         if self.musica_on_off:
             sound.set_volume(0.1)
             sound.play()
@@ -24,8 +24,7 @@ class Sound():
         
 
     def stop_music(self,sound):
-        if self.musica_on_off:
-            sound.stop()
+        sound.stop()
             
     def on_off_sound(self,parametro):
         if self.sonidos_on_off:
@@ -38,7 +37,9 @@ class Sound():
     def on_off_music(self,parametro):
         if self.musica_on_off:
             self.musica_on_off = False
+            self.cancion.stop()
             print("ahora el sonido es falso")
         elif not self.musica_on_off:
             self.musica_on_off = True
+            self.cancion.play()
             print("ahora el sonido es verdadero")
