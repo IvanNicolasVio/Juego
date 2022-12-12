@@ -14,6 +14,7 @@ from finalizador_juego import *
 from generador_nivel import *
 from boton import *
 from sounds import *
+from sqlite import *
 
 
 flags = DOUBLEBUF
@@ -24,7 +25,7 @@ sonido = Sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Alexander_Nakarada_-_
 menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="")
 menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
 menu_opciones_in_game = MenuOpcionesInGame(name="opciones_in_game",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
-menu_perder = MenuPerder(name="menu_perder",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
+menu_perder = MenuPerder(name="menu_perder",master_surface = screen,x=575,y=290,w=300,h=300,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 menu_score = MenuScore(name="menu_score",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 menu_pausa = MenuPausa(name="menu_pausa",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
 
@@ -40,10 +41,6 @@ while True:
             print(pos)
 
     keys = pygame.key.get_pressed()
-
-    if(keys[pygame.K_p]):
-        menu_pausa.active = True # fix
-        print("entro en la pausa")
 
     delta_ms = clock.tick(FPS)
     
@@ -63,9 +60,14 @@ while True:
         menu_perder.update(lista_eventos)
         menu_perder.draw()
         sonido.cancion.stop()
+        if menu_perder.bandera_ingresar_nombre:
+            print("Entro aca")
+            actualizar_base_datos(menu_perder.text_box.nombre,nivel_1.player_1.score,nivel_1.nivel)
+            menu_perder.bandera_ingresar_nombre = False
     elif(menu_score.active):
         menu_score.update(lista_eventos)
         menu_score.draw()
+        menu_score.mostrar_puntaje()
         sonido.cancion.stop()
     elif(menu_pausa.active):
         menu_pausa.update(lista_eventos)

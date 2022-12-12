@@ -5,7 +5,7 @@ from boton import Button
 from constantes import *
 from text_box import *
 from banner import Banner
-
+from sqlite import *
 
 class Form():
     forms_dict = {}
@@ -81,6 +81,7 @@ class MenuPrincipal(Form):
 
         self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4,self.boton5]
         self.bandera_nivel = True
+
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
         
@@ -177,16 +178,23 @@ class MenuOpcionesInGame(Form):
 class MenuPerder(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
-        self.boton1 = Button(master=self,x=50,y=350,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
-        self.text_box = TextBox(master=self,x=50,y=250,w=200,h=50,color_background=None,color_border=None,image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\set_gui_01\\Comic_Border\\Buttons\\Button_XL_08.png",text="Text",font="Verdana",font_size=30,font_color=BLACK)
-        self.lista_widget = [self.boton1,self.text_box]
+        self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
+        self.text_box = TextBox(master=self,x=50,y=150,w=200,h=50,color_background=None,color_border=None,image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\set_gui_01\\Comic_Border\\Buttons\\Button_XL_08.png",text="Text",font="Verdana",font_size=30,font_color=BLACK,nombre=None)
+        self.boton2 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="menu_principal",text="INGRESAR",font="Verdana",font_size=30,font_color=WHITE)
+        self.lista_widget = [self.boton1,self.text_box,self.boton2]
+        self.nombre = self.text_box.nombre
+        self.bandera_ingresar_nombre = False
 
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
+
+    def on_click_boton2(self, parametro):
+        self.bandera_ingresar_nombre = True
         
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
             aux_boton.update(lista_eventos)
+    
 
     def draw(self): 
         super().draw()
@@ -201,9 +209,12 @@ class MenuPerder(Form):
 class MenuScore(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
-
+        self.lista_score = []
         self.boton1 = Button(master=self,x=51,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
         self.lista_widget = [self.boton1]
+        self.master_surface = master_surface
+        self.contador = 0
+        self.posicion_y = 0
 
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
@@ -216,6 +227,17 @@ class MenuScore(Form):
         super().draw()
         for aux_boton in self.lista_widget:    
             aux_boton.draw()
+
+    def mostrar_puntaje(self):
+        self.lista_score = ordenar_score()
+        self.contador = 1
+        self.posicion_y = 150
+        for i in range(7):
+            fuente = pygame.font.SysFont("Arial",50)
+            texto = fuente.render("{0}: {1} - {2} - {3}".format(self.contador,self.lista_score[i][0],self.lista_score[i][1],self.lista_score[i][2]),True,(0,0,0))
+            self.master_surface.blit(texto,(230,self.posicion_y))
+            self.contador += 1
+            self.posicion_y += 85 
 
 class MenuPausa(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):

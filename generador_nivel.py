@@ -13,6 +13,7 @@ from boton import *
 from form import *
 from sounds import *
 
+
 class Nivel():
     def __init__(self,nivel,menu_perder,menu_pausa,screen,sonido,cancion) -> None:
         self.nivel = nivel
@@ -38,6 +39,8 @@ class Nivel():
         self.sonido = sonido
         self.cancion = cancion
 
+
+
     def leer_archivo(self):
         with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
             return json.load(configuraciones)
@@ -54,6 +57,7 @@ class Nivel():
 
         self.crear_plataformas()
         self.sonido.play_music(self.cancion)
+        crear_base_datos()
         
         return self.player_1
 
@@ -65,11 +69,12 @@ class Nivel():
         if not finalizador or self.player_1.vidas == 0:
             fuente = pygame.font.SysFont("Arial",100)
             texto = fuente.render("Score: {0}".format(self.player_1.score),True,(0,0,0))
-            screen.blit(texto,(500,330))
+            screen.blit(texto,(500,130))
             self.menu_perder.active = True
-            self.bandera_nivel_terminado = True
+            #self.bandera_nivel_terminado = True
             self.sonido.stop_music(self.cancion)
         else:
+
             for plataforma in self.lista_plataformas:
                 plataforma.draw(screen)
 

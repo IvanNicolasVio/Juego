@@ -5,12 +5,13 @@ from constantes import *
 
 
 class TextBox(Widget2):
-    def __init__(self,master,x=0,y=0,w=200,h=50,color_background=BLUE,color_border=L_BLUE,image_background=None,text="Button",font="Arial",font_size=14,font_color=BLACK,on_click=None,on_click_param=None):
+    def __init__(self,master,x=0,y=0,w=200,h=50,color_background=BLUE,color_border=L_BLUE,image_background=None,text="Button",font="Arial",font_size=14,font_color=BLACK,on_click=None,on_click_param=None,nombre=None):
         super().__init__(master,x,y,w,h,color_background,color_border,image_background,text,font,font_size,font_color)
         self.on_click = on_click
         self.on_click_param = on_click_param
         self.state = M_STATE_NORMAL
         self.writing_flag = False
+        self.nombre = nombre
         self.render()
         
     def render(self):
@@ -39,5 +40,11 @@ class TextBox(Widget2):
                     self._text = self._text[:-1]
                 else:
                     self._text += evento.unicode
-
+                    self.devolver_nombre()
         self.render()
+
+
+    def devolver_nombre(self):
+        self.nombre = self._text
+
+        return self.nombre
