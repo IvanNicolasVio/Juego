@@ -19,7 +19,7 @@ class Nivel():
         self.nivel = nivel
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
-        self.parametro_imagen_fondo = self.configuraciones_completas[nivel]["imagen_fondo"]
+        self.parametro_imagen_fondo = PATH_IMAGE + self.configuraciones_completas[nivel]["imagen_fondo"]
         self.parametro_plataformas = self.configuraciones_completas[nivel]["parametros_plataformas"]
         self.parametro_player_1 = self.configuraciones_completas[nivel]["player_1"]
         self.parametro_balas = self.configuraciones_completas[nivel]["cantidad_balas"]

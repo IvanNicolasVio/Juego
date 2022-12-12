@@ -1,7 +1,7 @@
 {
     "nivel_1":{
 
-        "imagen_fondo": "C:/Users/Iván/Desktop/Python_UTN/Juego/first_images/locations/city/all.png",
+        "imagen_fondo": "first_images\\locations\\city\\all.png",
         
         "parametros_plataformas":
         [
@@ -62,7 +62,7 @@
     }
     ,
     "nivel_2":{
-        "imagen_fondo": "C:\\Users\\Iván\\Desktop\\Juego\\first_images\\locations\\forest\\all.png",
+        "imagen_fondo": "first_images\\locations\\forest\\all.png",
         
         "parametros_plataformas":
         [
@@ -113,7 +113,7 @@
     }
     ,
     "nivel_3":{
-        "imagen_fondo": "C:\\Users\\Iván\\Desktop\\Juego\\first_images\\locations\\mountain\\all.png",
+        "imagen_fondo": "first_images\\locations\\mountain\\all.png",
         
         "parametros_plataformas":
         [
