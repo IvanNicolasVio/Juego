@@ -3,6 +3,9 @@ import pygame
 from juego_constantes import *
 
 class Button(Widget):
+    '''
+    Clase usada como boton donde se le puede poner texto y color
+    '''
     def __init__(self,master,x,y,w,h,color_background,color_border,on_click,on_click_param,text,font,font_size,font_color):
         super().__init__(master,x,y,w,h,color_background,color_border)
         pygame.font.init()
@@ -15,6 +18,11 @@ class Button(Widget):
         self.render()
         
     def render(self):
+        '''
+        dibuja el boton, le pone texto,color, y un collide
+
+        no tiene parametros ni return
+        '''
         image_text = self.font_sys.render(self._text,True,self.font_color,self.color_background)
         self.slave_surface = pygame.surface.Surface((self.w,self.h))
         self.slave_rect = self.slave_surface.get_rect()
@@ -32,6 +40,11 @@ class Button(Widget):
             self.slave_surface.fill(M_BRIGHT_CLICK, special_flags=pygame.BLEND_RGB_SUB) 
 
     def update(self,lista_eventos):
+        '''
+        ejecuta los collide con la posicion/click del mouse
+
+        lista_eventos : eventos que suceden en pygame 
+        '''
         mousePos = pygame.mouse.get_pos()
         self.state = M_STATE_NORMAL
         if self.slave_rect_collide.collidepoint(mousePos):
@@ -51,6 +64,9 @@ class Button(Widget):
 
 
 class ButtonScreen(Widget):
+    '''
+    Clase usada como boton donde se le puede poner texto y color, para ser usada in game
+    '''
     def __init__(self,master,x,y,w,h,color_background,color_border,on_click,on_click_param,text,font,font_size,font_color):
         super().__init__(master,x,y,w,h,color_background,color_border)
         pygame.font.init()
@@ -63,6 +79,11 @@ class ButtonScreen(Widget):
         self.render()
         
     def render(self):
+        '''
+        dibuja el boton, le pone texto,color, y un collide
+
+        no tiene parametros ni return
+        '''
         image_text = self.font_sys.render(self._text,True,self.font_color,self.color_background)
         self.slave_surface = pygame.surface.Surface((self.w,self.h))
         self.slave_rect = self.slave_surface.get_rect()
@@ -77,6 +98,11 @@ class ButtonScreen(Widget):
             self.slave_surface.fill(M_BRIGHT_CLICK, special_flags=pygame.BLEND_RGB_SUB) 
 
     def update(self,lista_eventos):
+        '''
+        ejecuta los collide con la posicion/click del mouse
+
+        lista_eventos : eventos que suceden en pygame 
+        '''
         mousePos = pygame.mouse.get_pos()
         self.state = M_STATE_NORMAL
         if self.slave_rect_collide.collidepoint(mousePos):
@@ -93,5 +119,10 @@ class ButtonScreen(Widget):
         self.render()
 
     def draw(self,screen):
+        '''
+        dibuja el boton en la pantalla de juego
+
+        screen = pantalla donde se ejecuta el juego
+        '''
         screen.blit(self.slave_surface,self.slave_rect)
         

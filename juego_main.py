@@ -61,7 +61,6 @@ while True:
         menu_perder.draw()
         sonido.cancion.stop()
         if menu_perder.bandera_ingresar_nombre:
-            print("Entro aca")
             actualizar_base_datos(menu_perder.text_box.nombre,nivel_1.player_1.score,nivel_1.nivel)
             menu_perder.bandera_ingresar_nombre = False
     elif(menu_score.active):

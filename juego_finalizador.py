@@ -2,6 +2,9 @@ import pygame
 from juego_constantes import *
 
 class Finalizador():
+    '''
+    objeto que finaliza el juego, dibuja el tiempo en el nivel
+    '''
     def __init__(self) -> None:
         self.bandera_finalizador = True
         self.tiempo_transcurrido = 0
@@ -9,6 +12,7 @@ class Finalizador():
         self.retorno = True
 
     def finalizar_juego(self,delta_ms):
+
         self.tiempo_transcurrido += delta_ms
         if self.tiempo_transcurrido > 3400:
             self.tiempo_de_juego -= 1

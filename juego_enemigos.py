@@ -7,6 +7,9 @@ import random
 
 
 class Radish():
+    '''
+    clase Radish: enemigo que se mueve de izquierda a derecha,con gravedad
+    '''
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
         self.walk_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1,True)
         self.walk_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1)
@@ -29,6 +32,11 @@ class Radish():
 #-------------------------------------------------------------------------------------------------------------------MOVIMIENTOS
 
     def movimiento(self,lista_plataformas): #Lo mueve de lado a lado
+        '''
+        movimiento automatico de radish de izquierda a derecha rebotando entre los parametros seteados en el creador
+
+        lista_plataformas : plataformas donde se puede mantener en pie el radish
+        '''
         if self.bandera_inico_mov:
             self.rect.x += self.speed_walk
             self.rect_colision.x += self.speed_walk
@@ -52,6 +60,12 @@ class Radish():
             self.add_y(self.gravity)
 
     def add_y(self,delta_y,accion="suma"):
+        '''
+        mueve el personaje en el eje y
+
+        delta_y: valor para mover el personaje
+        accion= "suma" si se quiere mover para abajo "resta" si se quiere mover para arriba
+        '''
         if accion == "suma":
             self.rect.y += delta_y
             self.rect_colision.y += delta_y
@@ -60,6 +74,12 @@ class Radish():
             self.rect_colision.y -= delta_y  
 
     def is_on_platform(self,lista_plataformas):
+        '''
+        detecta si no esta en la plataforma para poder activar/desactivar la gravedad
+
+        lista_plataformas = plataformas donde coliciona el enemigo
+        retorna: true si esta colicionando / False si no esta colicionando
+        '''
         retorno = False
         if(self.rect_colision.y >= GROUND_LEVEL):     
             retorno = True
@@ -73,6 +93,9 @@ class Radish():
 #----------------------------------------------------------------------------------------------------------------ANIMACION
 
     def do_animation(self): #Hace la animacion
+        '''
+        anima el objeto dibujado utiliza las funciones de la carpeta auxiliar
+        '''
         if(self.frame < len(self.animation) - 1):
             self.frame += 1 
         else: 
@@ -81,6 +104,11 @@ class Radish():
 #-----------------------------------------------------------------------------------------------------------------FUNDIR EN LA PANTALLA
 
     def draw(self,screen):
+        '''
+        dibuja el objeto en la pantalla de juego
+
+        screen = pantalla donde se ejecuta el juego
+        '''
         if(DEBUG):
             #pygame.draw.rect(screen,RED,self.rect)
             pygame.draw.rect(screen,RED,self.rect_colision)
@@ -89,6 +117,12 @@ class Radish():
         screen.blit(self.image,self.rect)
   
     def update(self,delta_ms,lista_plataformas,screen,player):
+        '''
+        llama a la funcion para dibujar , a la funcion para animar y a la funcion para mover automaticamente
+
+        lista_plataformas = plataformas donde coliciona el enemigo
+        screen = pantalla donde se ejecuta el juego
+        '''
         if self.vitality:
             self.draw(screen)
             self.movimiento(lista_plataformas)
@@ -108,6 +142,9 @@ class Radish():
             
 
 class TrunkPatrulla():
+    '''
+    clase Trunk: enemigo que se mueve de izquierda a derecha aleatoriamente,con gravedad y puede disparar
+    '''
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
         self.idle_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1)
         self.idle_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1,True)
@@ -145,7 +182,13 @@ class TrunkPatrulla():
 #------------------------------------------------------------------------------------------------------------------MOVIMIENTO
 
     def movimiento_aleatorio(self,delta_ms,lista_plataformas,jugador): # se mueve aleatoriamente
+        '''
+        movimiento automatico de trunk de izquierda a derecha aleatoriamente rebotando entre los parametros seteados en el creador
 
+        lista_plataformas : plataformas donde se puede mantener en pie el radish
+        jugador : jugador al que se quiere disparar
+        delta_ms = tiempo para medir el tiempo estipulado
+        '''
 
         if self.bandera_inicio_mov:
             self.add_x(self.speed_walk)
@@ -188,6 +231,12 @@ class TrunkPatrulla():
                 self.add_y(self.gravity)
 
     def add_x(self,delta_x,accion="suma"):
+        '''
+        mueve el personaje en el eje x
+
+        delta_x: valor para mover el personaje
+        accion= "suma" si se quiere mover para la derecha "resta" si se quiere mover para la izquierda
+        '''
         if accion == "suma":
             self.rect.x += delta_x
             self.rect_colision.x += delta_x  
@@ -202,6 +251,12 @@ class TrunkPatrulla():
             self.rect_boca.x -= delta_x
 
     def add_y(self,delta_y,accion="suma"):
+        '''
+        mueve el personaje en el eje y
+
+        delta_y: valor para mover el personaje
+        accion= "suma" si se quiere mover para abajo "resta" si se quiere mover para arriba
+        '''
         if accion == "suma":
             self.rect.y += delta_y
             self.rect_colision.y += delta_y
@@ -216,6 +271,12 @@ class TrunkPatrulla():
             self.rect_boca.y -= delta_y
 
     def is_on_platform(self,lista_plataformas):
+        '''
+        detecta si no esta en la plataforma para poder activar/desactivar la gravedad
+
+        lista_plataformas = plataformas donde coliciona el enemigo
+        retorna: true si esta colicionando / False si no esta colicionando
+        '''
         retorno = False
         if(self.rect_colision.y >= GROUND_LEVEL):     
             retorno = True
@@ -229,6 +290,9 @@ class TrunkPatrulla():
 #-----------------------------------------------------------------------------------------------------------------------------ANIMACION
 
     def do_animation(self):
+        '''
+        anima el objeto dibujado utiliza las funciones de la carpeta auxiliar
+        '''
         if(self.frame < len(self.animation) - 1):
             self.frame += 1 
         else: 
@@ -237,6 +301,11 @@ class TrunkPatrulla():
 #----------------------------------------------------------------------------------------------------------------------------- FUNDIR EN PANTALLA
 
     def draw(self,screen):
+        '''
+        dibuja el objeto en la pantalla de juego
+
+        screen = pantalla donde se ejecuta el juego
+        '''
         if(DEBUG):
             pygame.draw.rect(screen,RED,self.rect_colision)
             #pygame.draw.rect(screen,GREEN,self.rect_disparo_l)
@@ -244,10 +313,18 @@ class TrunkPatrulla():
         screen.blit(self.image,self.rect)
   
     def update(self,delta_ms,lista_plataformas,screen,jugador):
+        '''
+        llama a la funcion para dibujar , a la funcion para animar y a la funcion para mover automaticamente
+
+        delta_ms = tiempo para medir el tiempo estipulado
+        lista_plataformas = plataformas donde coliciona el enemigo
+        screen = pantalla donde se ejecuta el juego
+        jugador: al que se dispara
+        '''
         #if self.vitality:
-            self.draw(screen)
-            self.movimiento_aleatorio(delta_ms,lista_plataformas,jugador)
-            self.do_animation()
+        self.draw(screen)
+        self.movimiento_aleatorio(delta_ms,lista_plataformas,jugador)
+        self.do_animation()
     
 
 #------------------------------------------------------------------------------------------------------------------------------ Colicion

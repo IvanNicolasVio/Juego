@@ -1,8 +1,20 @@
 import pygame
 
 class Auxiliar:
+    ''' clase utilizada para animar imagenes con distintos cuadros'''
     @staticmethod
-    def getSurfaceFromSpriteSheet(path,columnas,filas,flip=False, step = 1,scale=1):
+    def getSurfaceFromSpriteSheet(path,columnas,filas,flip=False,step = 1,scale=1):
+        '''
+        usada para animar imagenes con muchos cuadros dentro de la misma
+
+        path = Imagen
+        columnas = numero de columnas en la imagen
+        filas = numero de filas en la imagen
+        flip = bool // True para que se oriente al otro lado
+        scale = escala de la imagen
+
+        retorna una lista con las imagenes para usar
+        '''
         lista = []
         surface_imagen = pygame.image.load(path)
         fotograma_ancho = int(surface_imagen.get_width()/columnas)
@@ -26,6 +38,19 @@ class Auxiliar:
 
     @staticmethod
     def getSurfaceFromSeparateFiles(path_format,quantity,flip=False,step = 1,scale=1,w=0,h=0,repeat_frame=1):
+        '''
+        usada para animar imagenes separadas
+
+        path = Imagen
+        quantity = cantidad
+        flip = bool // True para que se oriente al otro lado
+        scale = escala de la imagen
+        w = ancho
+        h = alto
+        repeat_frame = cuantas veces se la quiere repetir
+
+        retorna una lista con las imagenes para usar
+        '''
         lista = []
         for i in range(1,quantity+1):
             path = path_format.format(i)
