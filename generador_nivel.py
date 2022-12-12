@@ -36,6 +36,7 @@ class Nivel():
         self.menu_perder = menu_perder
         self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
         self.sonido = sonido
+        self.cancion = 0
 
     def leer_archivo(self):
         with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
@@ -52,6 +53,8 @@ class Nivel():
 
 
         self.crear_plataformas()
+        self.cancion = self.sonido.play_music("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
+        
         return self.player_1
 
     def update(self,delta_ms,screen,keys,events,lista_eventos):
@@ -64,7 +67,8 @@ class Nivel():
             texto = fuente.render("Score: {0}".format(self.player_1.score),True,(0,0,0))
             screen.blit(texto,(500,330))
             self.menu_perder.active = True
-
+            self.bandera_nivel_terminado = True
+            self.sonido.stop_music(self.cancion)
         else:
             for plataforma in self.lista_plataformas:
                 plataforma.draw(screen)

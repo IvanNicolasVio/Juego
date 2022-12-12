@@ -54,6 +54,9 @@ while True:
     elif(menu_opciones.active):
         menu_opciones.update(lista_eventos)
         menu_opciones.draw()
+    elif(menu_opciones_in_game.active):
+        menu_opciones_in_game.update(lista_eventos)
+        menu_opciones_in_game.draw()
     elif(menu_perder.active):
         menu_perder.update(lista_eventos)
         menu_perder.draw()

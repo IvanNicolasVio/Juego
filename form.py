@@ -120,7 +120,8 @@ class MenuOpciones(Form):
 
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
         self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
-        self.lista_widget = [self.boton1,self.boton2]
+        self.boton3 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
+        self.lista_widget = [self.boton1,self.boton2,self.boton3]
         
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
@@ -140,17 +141,18 @@ class MenuOpciones(Form):
 class MenuOpcionesInGame(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,sound):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
-        self.sound = sound
 
+        self.sound = sound
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
-        self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton2 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
         self.boton3 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton3,on_click_param="soubd",text="REANUDAR",font="Verdana",font_size=30,font_color=WHITE)
-        self.lista_widget = [self.boton1,self.boton2,self.boton3]
+        self.boton4 = Button(master=self,x=50,y=350,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="MUSICA",font="Verdana",font_size=30,font_color=WHITE)
+        self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4]
         
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
 
-    def on_click_boton2(self,parametro):#fix
+    def on_click_boton2(self,parametro):
         self.sound.on_off_sound(parametro)
 
     def on_click_boton3(self, parametro):
