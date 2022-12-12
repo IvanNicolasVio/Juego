@@ -7,6 +7,9 @@ from juego_text_box import *
 from juego_sqlite import *
 
 class Form():
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+    '''
     forms_dict = {}
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         self.forms_dict[name] = self
@@ -31,10 +34,15 @@ class Form():
             self.surface.fill(self.color_background)
     
     def set_active(self,name):
+        '''
+        minimiza el form donde se encuentra y abre otro en su lugar
+
+        name: nombre del form a abrir
+        '''
         for aux_form in self.forms_dict.values():
             aux_form.active = False
         self.forms_dict[name].active = True
-        print((self.forms_dict[name].active))
+        
 
     def render(self):
         pass
@@ -47,6 +55,11 @@ class Form():
 
 
 class FormMenu(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,master_surface,x,y,w,h,color_background,color_border,active):
         super().__init__(master_surface,x,y,w,h,color_background,color_border,active)
 
@@ -69,6 +82,11 @@ class FormMenu(Form):
 
 
 class MenuPrincipal(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
 
@@ -82,10 +100,16 @@ class MenuPrincipal(Form):
         self.bandera_nivel = True
 
     def on_click_boton1(self, parametro):
+        '''
+        minimiza el form donde se encuentra y abre otro en su lugar
+
+        parametro: nombre del form a abrir
+        '''
         self.set_active(parametro)
         
 
     def on_click_boton2(self, parametro):
+        
         for aux_form in self.forms_dict.values():
             aux_form.active = False
         self.nivel = "nivel_1"
@@ -114,6 +138,11 @@ class MenuPrincipal(Form):
 
 
 class MenuOpciones(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,sound):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
         self.sound = sound
@@ -142,6 +171,11 @@ class MenuOpciones(Form):
             aux_boton.draw()
 
 class MenuOpcionesInGame(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,sound):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
 
@@ -175,6 +209,11 @@ class MenuOpcionesInGame(Form):
             aux_boton.draw()
 
 class MenuPerder(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
@@ -206,6 +245,11 @@ class MenuPerder(Form):
         self.blit(texto,(50,330))
 
 class MenuScore(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
         self.lista_score = []
@@ -239,6 +283,11 @@ class MenuScore(Form):
             self.posicion_y += 85 
 
 class MenuPausa(Form):
+    '''
+    la clase form es utilizada para desplazarse entre unos y otros, contiene botones y textbox
+
+    hereda la clase Form
+    '''
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
 
