@@ -6,10 +6,18 @@ from pygame import mixer
 class Sound():
     def __init__(self) -> None:
         mixer.init()
-        self.player_auch = pygame.mixer.Sound("C:\Users\Iván\Desktop\Juego\Sonidos\AU.m4a")
-        self.button_click = pygame.mixer.Sound("C:\Users\Iván\Desktop\Juego\Sonidos\Click.m4a")
-        self.enemy_death = pygame.mixer.Sound("C:\Users\Iván\Desktop\Juego\Sonidos\Muerte enemigo.m4a")
-        self.player_death = pygame.mixer.Sound("C:\Users\Iván\Desktop\Juego\Sonidos\NOOOO.m4a")
-        self.shoot_sound = pygame.mixer.Sound("C:\Users\Iván\Desktop\Juego\Sonidos\Piu.m4a")
+        self.sonidos_on_off = True
     
-    
+    def play_sound(self,path):
+        sound = pygame.mixer.Sound(path)
+        if self.sonidos_on_off:
+            sound.set_volume(0.2)
+            sound.play()
+            
+    def on_off_sound(self,parametro):
+        if self.sonidos_on_off:
+            self.sonidos_on_off = False
+            print("ahora el sonido es falso")
+        elif not self.sonidos_on_off:
+            self.sonidos_on_off = True
+            print("ahora el sonido es verdadero")

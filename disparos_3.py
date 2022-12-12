@@ -38,7 +38,7 @@ class lista_balas():
     def recargar(self):
         self.lista_balas_en_cargador = self.crear_balas()
 
-    def disparar_balas(self,player):
+    def disparar_balas(self,player,sound):
             if self.bandera_z and self.lista_balas_en_cargador:
                 bala_disparada = self.lista_balas_en_cargador.pop(0)
                 bala_disparada.rect_colide.x = player.rect_manos.x
@@ -49,6 +49,7 @@ class lista_balas():
                 bala_disparada.direccion_disp = player.direction
                 self.bandera_z = False       
                 self.lista_balas_usadas.append(bala_disparada)
+                sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Piu.wav")
                 
             else:
                 self.bandera_z = False    
@@ -65,7 +66,7 @@ class lista_balas():
                     bala.rect.x -= bala.speed
 
         
-    def kill(self,lista_enemigos,player):
+    def kill(self,lista_enemigos,player,sound):
         for bala in self.lista_balas_usadas:
             for enemigo in lista_enemigos:
                     if bala.rect_colide.colliderect(enemigo.rect_colision) and enemigo.vitality == True :
@@ -73,6 +74,7 @@ class lista_balas():
                         bala.bandera_disp = False
                         self.lista_balas_usadas.remove(bala)
                         player.score += 100 
+                        sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Muerte-enemigo.wav")
 
 
     def eventos(self,events):
@@ -80,15 +82,16 @@ class lista_balas():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_z:
                     self.bandera_z = True
+                    
                 if event.key == pygame.K_r:
                     self.recargar()
 
-    def update(self,player,events,screen,lista_enemigos,lista_radish):
+    def update(self,player,events,screen,lista_enemigos,lista_radish,sound):
         self.eventos(events)
         self.dibujar_balas(screen)
-        self.disparar_balas(player)
-        self.kill(lista_enemigos,player)
-        self.kill(lista_radish,player)
+        self.disparar_balas(player,sound)
+        self.kill(lista_enemigos,player,sound)
+        self.kill(lista_radish,player,sound)
         return self.lista_balas_usadas
         
 
@@ -119,12 +122,12 @@ class lista_balas_enemigas():
                         bala.rect.x -= bala.speed
                     
 
-    def update(self,enemigo,screen,jugador,lista_de_enemigos,delta_ms):
+    def update(self,enemigo,screen,jugador,lista_de_enemigos,delta_ms,sound):
         self.tiempo_acumulado += delta_ms 
         if self.tiempo_acumulado > 1800:
             self.tiempo_acumulado = 0
             self.crear_balas(enemigo)
-        self.disparar_balas(enemigo)
+        self.disparar_balas(enemigo,sound)
         self.dibujar_balas(screen,enemigo)
         self.eventos(lista_de_enemigos,jugador,delta_ms)
         #self.recargar()
@@ -133,7 +136,7 @@ class lista_balas_enemigas():
 
 #-----------------------------------------------------------------------------------------------------------------------DISPAROS ENEMIGOS
    
-    def disparar_balas(self,enemigo):    
+    def disparar_balas(self,enemigo,sound):    
         if enemigo.bandera_para_disparar and enemigo.cargador and enemigo.poder_disparar:
             bala_disparada = enemigo.cargador.pop(0)
             bala_disparada.rect_colide.x = enemigo.rect_boca.x
@@ -144,6 +147,7 @@ class lista_balas_enemigas():
             bala_disparada.direccion_disp = enemigo.direction
             enemigo.balas_usadas.append(bala_disparada)
             self.lista_balas_usadas.append(bala_disparada)
+            sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Piu.wav")
             
             #print("Disparo")
         else:

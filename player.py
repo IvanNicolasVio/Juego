@@ -201,18 +201,20 @@ class Player:
                 fruta.recolectada = False
                 
                 
-    def lastimarse(self):
+    def lastimarse(self,sound):
         
         if self.vidas > 1 and self.vitality and self.bandera_lastimarse:
             self.vidas -= 1
             self.bandera_restar_vidas = True
             self.bandera_lastimarse = False
+            sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\AU.wav")
             print("perdiste una vida")
         elif self.vidas == 1 and self.vitality and self.bandera_lastimarse:
             self.vidas -= 1
             self.vitality = False
             self.bandera_restar_vidas = True
             self.bandera_lastimarse = False
+            sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\NOOOO.wav")
             print("perdiste las 3")
 
     def colisionar_con_enemigos(self,lista_enemigos,delta_ms):
@@ -231,10 +233,10 @@ class Player:
                 bala.vitality = False
         
     
-    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish,lista_balas):
+    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish,lista_balas,sound):
         self.do_movement(delta_ms,lista_plataformas,lista_enemigos)
         self.do_animation(delta_ms)
-        self.lastimarse()
+        self.lastimarse(sound)
         self.recolectar_frutas(lista_frutas)
         self.colisionar_con_enemigos(lista_enemigos,delta_ms)
         self.colisionar_con_enemigos(lista_radish,delta_ms)

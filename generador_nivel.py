@@ -11,9 +11,10 @@ from generador_enemigos import *
 from finalizador_juego import *
 from boton import *
 from form import *
+from sounds import *
 
 class Nivel():
-    def __init__(self,nivel,menu_perder,menu_pausa,screen) -> None:
+    def __init__(self,nivel,menu_perder,menu_pausa,screen,sonido) -> None:
         self.nivel = nivel
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
@@ -34,7 +35,8 @@ class Nivel():
         self.imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
         self.menu_perder = menu_perder
         self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
-        
+        self.sonido = sonido
+
     def leer_archivo(self):
         with open("nivel_1.json", "r",encoding="utf-8") as configuraciones:
             return json.load(configuraciones)
@@ -42,9 +44,6 @@ class Nivel():
     def crear_plataformas(self):
         for parametro in self.parametro_plataformas:
             self.lista_plataformas.append(Platform(parametro[0],parametro[1],parametro[2],parametro[3],parametro[4]))
-
-    def delete_level(self):
-        self.imagen_fondo = None
 
     def generar_nivel(self):
 
@@ -75,13 +74,13 @@ class Nivel():
             lista_radish = self.radish.update(delta_ms,self.lista_plataformas,screen,self.player_1)
 
             for enemigo in lista_trunk:
-                lista_balas_de_enemigo = self.lista_de_balas_enemigos.update(enemigo,screen,self.player_1,lista_trunk,delta_ms)
+                lista_balas_de_enemigo = self.lista_de_balas_enemigos.update(enemigo,screen,self.player_1,lista_trunk,delta_ms,self.sonido)
 
             if self.player_1.vitality:
                 self.player_1.events(keys)
-                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo)
+                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo,self.sonido)
                 self.player_1.draw(screen)
-                lista_para_contar_balas = self.lista_de_balas.update(self.player_1,events,screen,lista_trunk,lista_radish)
+                lista_para_contar_balas = self.lista_de_balas.update(self.player_1,events,screen,lista_trunk,lista_radish,self.sonido)
 
             self.items_en_pantalla.update(screen,self.player_1,delta_ms)
 

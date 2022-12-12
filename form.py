@@ -114,24 +114,49 @@ class MenuPrincipal(Form):
 
 
 class MenuOpciones(Form):
-    def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
+    def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,sound):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
+        self.sound = sound
 
         self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
-        self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="menu_principal",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
         self.lista_widget = [self.boton1,self.boton2]
         
     def on_click_boton1(self, parametro):
         self.set_active(parametro)
 
-    def on_click_boton2(self, parametro):#fix
-        if sonido:
-            sonido = False
-            print("ahora el sonido es falso")
-        else:
-            sonido = True
-            print("ahora el sonido es verdadero")
+    def on_click_boton2(self,parametro):#fix
+        self.sound.on_off_sound(parametro)
         
+    def update(self, lista_eventos):
+        for aux_boton in self.lista_widget:
+            aux_boton.update(lista_eventos)
+
+    def draw(self): 
+        super().draw()
+        for aux_boton in self.lista_widget:    
+            aux_boton.draw()
+
+class MenuOpcionesInGame(Form):
+    def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,sound):
+        super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
+        self.sound = sound
+
+        self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="soubd",text="SOUND",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton3 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton3,on_click_param="soubd",text="REANUDAR",font="Verdana",font_size=30,font_color=WHITE)
+        self.lista_widget = [self.boton1,self.boton2,self.boton3]
+        
+    def on_click_boton1(self, parametro):
+        self.set_active(parametro)
+
+    def on_click_boton2(self,parametro):#fix
+        self.sound.on_off_sound(parametro)
+
+    def on_click_boton3(self, parametro):
+        for aux_form in self.forms_dict.values():
+            aux_form.active = False
+            
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
             aux_boton.update(lista_eventos)
@@ -188,7 +213,7 @@ class MenuPausa(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel)
 
-        self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_opciones",text="OPCIONES",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton1 = Button(master=self,x=50,y=50,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="opciones_in_game",text="OPCIONES",font="Verdana",font_size=30,font_color=WHITE)
         self.boton2 = Button(master=self,x=50,y=150,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton1,on_click_param="menu_principal",text="MENU PRINCIPAL",font="Verdana",font_size=30,font_color=WHITE)
         self.boton3 = Button(master=self,x=50,y=250,w=200,h=50,color_background=BLUE,color_border=(255,0,255),on_click=self.on_click_boton2,on_click_param="menu_principal",text="REGRESAR",font="Verdana",font_size=30,font_color=WHITE)
         self.lista_widget = [self.boton1,self.boton2,self.boton3]
