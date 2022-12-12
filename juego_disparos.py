@@ -1,6 +1,6 @@
 import pygame
-from constantes import *
-from auxiliar import Auxiliar
+from juego_constantes import *
+from juego_auxiliar import Auxiliar
 
 class Bala():
     def __init__(self,x,y,speed) -> None:

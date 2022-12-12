@@ -1,7 +1,7 @@
 import pygame
 from pygame.locals import *
-from widget import Widget2
-from constantes import *
+from juego_widget import Widget2
+from juego_constantes import *
 
 
 class TextBox(Widget2):

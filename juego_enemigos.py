@@ -1,7 +1,7 @@
 import pygame
-from constantes import *
-from auxiliar import Auxiliar
-from disparos_3 import *
+from juego_constantes import *
+from juego_auxiliar import Auxiliar
+from juego_disparos import *
 import random
 
 

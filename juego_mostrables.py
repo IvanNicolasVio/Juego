@@ -1,5 +1,5 @@
 import pygame
-from constantes import *
+from juego_constantes import *
 
 class PrimeraVida():
     def __init__(self,x,y) -> None:

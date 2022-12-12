@@ -1,11 +1,10 @@
 import pygame
 from pygame.locals import *
-from widget import Widget
-from boton import Button
-from constantes import *
-from text_box import *
-from banner import Banner
-from sqlite import *
+from juego_widget import Widget
+from juego_boton import Button
+from juego_constantes import *
+from juego_text_box import *
+from juego_sqlite import *
 
 class Form():
     forms_dict = {}

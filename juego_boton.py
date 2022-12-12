@@ -1,6 +1,6 @@
-from widget import Widget
+from juego_widget import Widget
 import pygame
-from constantes import *
+from juego_constantes import *
 
 class Button(Widget):
     def __init__(self,master,x,y,w,h,color_background,color_border,on_click,on_click_param,text,font,font_size,font_color):

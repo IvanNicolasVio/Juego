@@ -1,5 +1,5 @@
 import pygame
-from constantes import *
+from juego_constantes import *
 from pygame import mixer
 
 
