@@ -3,7 +3,7 @@ from juego_constantes import *
 
 class PrimeraVida():
     def __init__(self,x,y) -> None:
-        self.image = pygame.image.load("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\images\\corazon_1.png")
+        self.image = pygame.image.load(PATH_IMAGE + "images\\corazon_1.png")
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -50,18 +50,7 @@ class items_pantalla():
                 self.tiempo_transcurrido = 0
                 jugador.bandera_restar_vidas = False
                 self.lista_vidas.remove(vida)
-
-    # def tiempo_de_nivel(self,delta_ms,screen):
-    #     self.tiempo_transcurrido += delta_ms
-    #     if self.tiempo_transcurrido > 3400:
-    #         self.tiempo_de_juego -= 1
-    #         self.tiempo_transcurrido = 0
-    #     fuente = pygame.font.SysFont("Arial",30)
-    #     texto = fuente.render("Tiempo restante: {0}".format(self.tiempo_de_juego),True,(0,0,0))
-    #     screen.blit(texto,(1200,30))
-           
     
-
     def update(self,screen,jugador,delta_ms):
         if self.vida_creada:
             self.generarVida()

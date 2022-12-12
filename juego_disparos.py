@@ -4,7 +4,7 @@ from juego_auxiliar import Auxiliar
 
 class Bala():
     def __init__(self,x,y,speed) -> None:
-        self.shoot = pygame.image.load("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Enemies\\Skull\\Red Particle.png")
+        self.shoot = pygame.image.load(PATH_IMAGE + "Recursos_pixel\\Enemies\\Skull\\Red Particle.png")
         self.rect = self.shoot.get_rect()
         self.rect.x = x 
         self.rect.y = y  
@@ -49,7 +49,7 @@ class lista_balas():
                 bala_disparada.direccion_disp = player.direction
                 self.bandera_z = False       
                 self.lista_balas_usadas.append(bala_disparada)
-                sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Piu.wav")
+                sound.play_sound(PATH_IMAGE + "Sonidos\\Piu.wav")
                 
             else:
                 self.bandera_z = False    
@@ -74,7 +74,7 @@ class lista_balas():
                         bala.bandera_disp = False
                         self.lista_balas_usadas.remove(bala)
                         player.score += 100 
-                        sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Muerte-enemigo.wav")
+                        sound.play_sound(PATH_IMAGE + "Sonidos\\Muerte-enemigo.wav")
 
 
     def eventos(self,events):
@@ -147,7 +147,7 @@ class lista_balas_enemigas():
             bala_disparada.direccion_disp = enemigo.direction
             enemigo.balas_usadas.append(bala_disparada)
             self.lista_balas_usadas.append(bala_disparada)
-            sound.play_sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Piu.wav")
+            sound.play_sound(PATH_IMAGE + "Sonidos\\Piu.wav")
             
             #print("Disparo")
         else:

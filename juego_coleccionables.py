@@ -6,7 +6,7 @@ from juego_auxiliar import Auxiliar
 
 class Manzana():
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
@@ -38,7 +38,7 @@ class Manzana():
 
 class Banana(Manzana):
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Items\\Fruits\\Bananas.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Bananas.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
@@ -50,7 +50,7 @@ class Banana(Manzana):
 
 class Cherry(Manzana):
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\Recursos_pixel\\Items\\Fruits\\Cherries.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Cherries.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]

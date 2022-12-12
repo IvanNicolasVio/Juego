@@ -31,4 +31,4 @@ M_BRIGHT_CLICK = RED
 
 
 
-PATH_IMAGE = "C:\\Users\\Iván\\Desktop\\Python_UTN\\CLASE_19_inicio_juego\\images"
+PATH_IMAGE = "C:\\Users\\Iván\\Desktop\\Juego\\"

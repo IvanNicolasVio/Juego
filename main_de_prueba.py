@@ -1,15 +1,15 @@
 import pygame
 import sys
-from constantes import *
-from player import Player
-from plataforma import *
-from enemigos_2 import *   
-from disparos_3 import *
-from coleccionables import *
-from mostrables import *
-from generador_enemigos import *
-from finalizador_juego import *
-from generador_nivel import *
+from juego_constantes import *
+from juego_player import Player
+from juego_plataforma import *
+from juego_enemigos import *   
+from juego_disparos import *
+from juego_coleccionables import *
+from juego_mostrables import *
+from juego_generador_enemigos import *
+from juego_finalizador import *
+from juego_generador_nivel import *
 
 tiempo_acumulado = 0
 

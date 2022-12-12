@@ -1,14 +1,14 @@
 import pygame
 import sys
-from constantes import *
-from player import Player
-from plataforma import *
-from enemigos_2 import *   
-from disparos_3 import *
-from coleccionables import *
-from mostrables import *
-from generador_enemigos import *
-from finalizador_juego import *
+from juego_constantes import *
+from juego_player import Player
+from juego_plataforma import *
+from juego_enemigos import *   
+from juego_disparos import *
+from juego_coleccionables import *
+from juego_mostrables import *
+from juego_generador_enemigos import *
+from juego_finalizador import *
 
 tiempo_acumulado = 0
 
@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA))
 pygame.init()
 clock = pygame.time.Clock()
 
-imagen_fondo = pygame.image.load("C:\\Users\\Iván\\Desktop\\Python_UTN\\Juego\\first_images\\locations\\city\\all.png")
+imagen_fondo = pygame.image.load(PATH_IMAGE + "first_images\\locations\\city\\all.png")
 imagen_fondo = pygame.transform.scale(imagen_fondo,(ANCHO_VENTANA,ALTO_VENTANA))
 
 

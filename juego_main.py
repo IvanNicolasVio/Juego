@@ -21,7 +21,7 @@ flags = DOUBLEBUF
 screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
 pygame.init()
 clock = pygame.time.Clock()
-sonido = Sound("C:\\Users\\Iván\\Desktop\\Juego\\Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
+sonido = Sound(PATH_IMAGE + "Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
 menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="")
 menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
 menu_opciones_in_game = MenuOpcionesInGame(name="opciones_in_game",master_surface = screen,x=575,y=185,w=300,h=400,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
