@@ -13,10 +13,10 @@ class Saw():
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
-        self.rect_colision = pygame.Rect(x + 10,y + 10,10,10)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+        self.rect_colision = pygame.Rect(self.rect.x + 5,self.rect.y + 5,28,28)
         self.vitality = True
 
 

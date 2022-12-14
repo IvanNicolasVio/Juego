@@ -236,13 +236,14 @@ class Player:
                     bala.vitality = False
         
     
-    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish,lista_balas,sound):
+    def update(self,delta_ms,lista_plataformas,lista_enemigos,lista_frutas,lista_radish,lista_balas,sound,lista_trampas):
         self.do_movement(delta_ms,lista_plataformas,lista_enemigos)
         self.do_animation(delta_ms)
         self.lastimarse(sound)
         self.recolectar_frutas(lista_frutas)
         self.colisionar_con_enemigos(lista_enemigos,delta_ms)
         self.colisionar_con_enemigos(lista_radish,delta_ms)
+        self.colisionar_con_enemigos(lista_trampas,delta_ms)
         self.colisionar_con_balas(lista_balas,delta_ms)
                     
                     

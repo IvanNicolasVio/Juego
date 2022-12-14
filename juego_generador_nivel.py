@@ -12,6 +12,7 @@ from juego_finalizador import *
 from juego_boton import *
 from juego_form import *
 from juego_sounds import *
+from trampas import *
 
 
 class Nivel():
@@ -19,8 +20,10 @@ class Nivel():
         self.nivel = nivel
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
+        self.lista_trampas = []
         self.parametro_imagen_fondo = PATH_IMAGE + self.configuraciones_completas[nivel]["imagen_fondo"]
         self.parametro_plataformas = self.configuraciones_completas[nivel]["parametros_plataformas"]
+        self.parametro_trampas = self.configuraciones_completas[nivel]["parametros_trampas"]
         self.parametro_player_1 = self.configuraciones_completas[nivel]["player_1"]
         self.parametro_balas = self.configuraciones_completas[nivel]["cantidad_balas"]
         self.parametro_trunk = self.configuraciones_completas[nivel]["trunk"]
@@ -49,6 +52,10 @@ class Nivel():
         for parametro in self.parametro_plataformas:
             self.lista_plataformas.append(Platform(parametro[0],parametro[1],parametro[2],parametro[3],parametro[4]))
 
+    def crear_trampas(self):
+       for parametro in self.parametro_trampas:
+            self.lista_trampas.append(Saw(parametro[0],parametro[1])) 
+
     def generar_nivel(self):
 
         #imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
@@ -56,6 +63,7 @@ class Nivel():
 
 
         self.crear_plataformas()
+        self.crear_trampas()
         self.sonido.play_music(self.cancion)
         crear_base_datos()
         
@@ -78,6 +86,9 @@ class Nivel():
             for plataforma in self.lista_plataformas:
                 plataforma.draw(screen)
 
+            for trampa in self.lista_trampas:
+                trampa.update(screen)
+
             lista_frutas = self.frutas.update(self.lista_plataformas,screen)
             lista_trunk = self.trunk.update(self.lista_plataformas,screen,delta_ms,self.player_1)
             lista_radish = self.radish.update(delta_ms,self.lista_plataformas,screen,self.player_1)
@@ -87,7 +98,7 @@ class Nivel():
 
             if self.player_1.vitality:
                 self.player_1.events(keys)
-                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,self.lista_balas_de_enemigo,self.sonido)
+                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,self.lista_balas_de_enemigo,self.sonido,self.lista_trampas)
                 self.player_1.draw(screen)
                 lista_para_contar_balas = self.lista_de_balas.update(self.player_1,events,screen,lista_trunk,lista_radish,self.sonido)
 
