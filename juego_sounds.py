@@ -20,7 +20,7 @@ class Sound():
         if self.musica_on_off:
             sound.set_volume(0.1)
             sound.play()
-        return sound
+        
         
 
     def stop_music(self,sound):

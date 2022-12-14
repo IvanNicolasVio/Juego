@@ -101,13 +101,16 @@ class Button_v3(Widget3):
         self.on_click = on_click
         self.on_click_param = on_click_param
         self.state = M_STATE_NORMAL
-        self.bloquear = True
+        self.on_off = True
         self.render()
         
     def render(self):
         super().render()
         if self.state == M_STATE_HOVER: # Se aclara la imagen
-            self.slave_surface.fill(M_BRIGHT_HOVER, special_flags=pygame.BLEND_RGB_ADD) 
+            if self.on_off:
+                self.slave_surface.fill(RED, special_flags=pygame.BLEND_RGB_ADD) 
+            elif not self.on_off:
+                self.slave_surface.fill(GREEN, special_flags=pygame.BLEND_RGB_ADD) 
         elif self.state == M_STATE_CLICK: # Se oscurece la imagen
             self.slave_surface.fill(M_BRIGHT_CLICK, special_flags=pygame.BLEND_RGB_SUB) 
 

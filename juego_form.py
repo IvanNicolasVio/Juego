@@ -162,13 +162,27 @@ class MenuOpciones(Form):
 
     def on_click_boton2(self,parametro):#fix
         self.sound.on_off_sound(parametro)
-    
+
     def on_click_boton4(self,parametro):
         self.sound.on_off_music(parametro)
-        
+
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
             aux_boton.update(lista_eventos)
+
+        if self.sound.sonidos_on_off == True:
+            self.boton2.on_off = True
+            self.boton2._text = "SOUND ON"
+        elif self.sound.sonidos_on_off == False:
+            self.boton2.on_off = False
+            self.boton2._text = "SOUND OFF"
+
+        if self.sound.musica_on_off == True:
+            self.boton3.on_off = True
+            self.boton3._text = "MUSIC ON"
+        elif self.sound.musica_on_off == False:
+            self.boton3.on_off = False
+            self.boton3._text = "MUSIC OFF"
 
     def draw(self): 
         super().draw()
@@ -203,10 +217,24 @@ class MenuOpcionesInGame(Form):
 
     def on_click_boton4(self,parametro):
         self.sound.on_off_music(parametro)
-            
+        
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
             aux_boton.update(lista_eventos)
+
+        if self.sound.sonidos_on_off == True:
+            self.boton2.on_off = True
+            self.boton2._text = "SOUND ON"
+        elif self.sound.sonidos_on_off == False:
+            self.boton2.on_off = False
+            self.boton2._text = "SOUND OFF"
+
+        if self.sound.musica_on_off == True:
+            self.boton4.on_off = True
+            self.boton4._text = "MUSIC ON"
+        elif self.sound.musica_on_off == False:
+            self.boton4.on_off = False
+            self.boton4._text = "MUSIC OFF"
 
     def draw(self): 
         super().draw()
