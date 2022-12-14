@@ -2,6 +2,8 @@
     "nivel_1":{
 
         "imagen_fondo": "first_images\\locations\\city\\all.png",
+
+        "tiempo_juego": 15,
         
         "parametros_plataformas":
         [
@@ -63,6 +65,8 @@
     ,
     "nivel_2":{
         "imagen_fondo": "first_images\\locations\\forest\\all.png",
+
+        "tiempo_juego": 15,
         
         "parametros_plataformas":
         [
@@ -114,6 +118,8 @@
     ,
     "nivel_3":{
         "imagen_fondo": "first_images\\locations\\mountain\\all.png",
+
+        "tiempo_juego": 15,
         
         "parametros_plataformas":
         [

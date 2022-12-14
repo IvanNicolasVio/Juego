@@ -5,10 +5,10 @@ class Finalizador():
     '''
     objeto que finaliza el juego, dibuja el tiempo en el nivel
     '''
-    def __init__(self) -> None:
+    def __init__(self,tiempo_juego) -> None:
         self.bandera_finalizador = True
         self.tiempo_transcurrido = 0
-        self.tiempo_de_juego = 30
+        self.tiempo_de_juego = tiempo_juego
         self.retorno = True
 
     def finalizar_juego(self,delta_ms):
