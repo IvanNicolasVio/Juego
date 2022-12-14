@@ -19,7 +19,7 @@ class Finalizador():
         delta_ms = tiempo para medir el tiempo estipulado
         '''
         self.tiempo_transcurrido += delta_ms
-        if self.tiempo_transcurrido > 2400:
+        if self.tiempo_transcurrido > 1200:
             self.tiempo_de_juego -= 1
             self.tiempo_transcurrido = 0
 
