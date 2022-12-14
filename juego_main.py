@@ -22,12 +22,12 @@ screen = pygame.display.set_mode((ANCHO_VENTANA,ALTO_VENTANA), flags, 16)
 pygame.init()
 clock = pygame.time.Clock()
 sonido = Sound(PATH_IMAGE + "Sonidos\\Alexander_Nakarada_-_The_Return.mp3")
-menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="")
-menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
-menu_opciones_in_game = MenuOpcionesInGame(name="opciones_in_game",master_surface = screen,x=575,y=185,w=300,h=450,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido)
-menu_perder = MenuPerder(name="menu_perder",master_surface = screen,x=575,y=290,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
-menu_score = MenuScore(name="menu_score",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
-menu_pausa = MenuPausa(name="menu_pausa",master_surface = screen,x=575,y=185,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="")
+menu_principal = MenuPrincipal(name="menu_principal",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=L_VIOLET,color_border=VIOLET,active=True,nivel="",image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\1008904.png")
+menu_opciones = MenuOpciones(name="menu_opciones",master_surface = screen,x=575,y=185,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido,image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\jungle\\pause\\bg.png")
+menu_opciones_in_game = MenuOpcionesInGame(name="opciones_in_game",master_surface = screen,x=575,y=185,w=300,h=450,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",sound=sonido,image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\jungle\\pause\\bg.png")
+menu_perder = MenuPerder(name="menu_perder",master_surface = screen,x=575,y=290,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\jungle\\pause\\bg.png")
+menu_score = MenuScore(name="menu_score",master_surface = screen,x=0,y=0,w=ANCHO_VENTANA,h=ALTO_VENTANA,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\jungle\\pause\\bg.png")
+menu_pausa = MenuPausa(name="menu_pausa",master_surface = screen,x=575,y=185,w=300,h=350,color_background=(0,255,255),color_border=(255,0,255),active=False,nivel="",image_background="C:\\Users\\Iván\\Desktop\\Juego\\images\\images\\gui\\jungle\\pause\\bg.png")
 
 
 while True:     

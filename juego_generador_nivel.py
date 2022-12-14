@@ -83,11 +83,11 @@ class Nivel():
             lista_radish = self.radish.update(delta_ms,self.lista_plataformas,screen,self.player_1)
 
             for enemigo in lista_trunk:
-                lista_balas_de_enemigo = self.lista_de_balas_enemigos.update(enemigo,screen,self.player_1,lista_trunk,delta_ms,self.sonido)
+                self.lista_balas_de_enemigo = self.lista_de_balas_enemigos.update(enemigo,screen,self.player_1,lista_trunk,delta_ms,self.sonido)
 
             if self.player_1.vitality:
                 self.player_1.events(keys)
-                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,lista_balas_de_enemigo,self.sonido)
+                self.player_1.update(delta_ms,self.lista_plataformas,lista_trunk,lista_frutas,lista_radish,self.lista_balas_de_enemigo,self.sonido)
                 self.player_1.draw(screen)
                 lista_para_contar_balas = self.lista_de_balas.update(self.player_1,events,screen,lista_trunk,lista_radish,self.sonido)
 

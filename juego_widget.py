@@ -94,6 +94,7 @@ class Widget3:
             pygame.font.init()
             self._font_sys = pygame.font.SysFont(font,font_size)
             self._font_color = font_color
+        self.visibilidad = True
 
     def render(self):
         
@@ -125,4 +126,5 @@ class Widget3:
         pass
 
     def draw(self):
-        self.master_form.surface.blit(self.slave_surface,self.slave_rect)
+        if self.visibilidad:
+            self.master_form.surface.blit(self.slave_surface,self.slave_rect)
