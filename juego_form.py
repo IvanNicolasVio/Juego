@@ -95,11 +95,11 @@ class MenuPrincipal(Form):
     def __init__(self,name,master_surface,x,y,w,h,color_background,color_border,active,nivel,image_background):
         super().__init__(name,master_surface,x,y,w,h,color_background,color_border,active,nivel,image_background)
 
-        self.boton1 = Button_v2(master=self,x=50,y=50,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="OPCIONES",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton1,on_click_param="menu_opciones")
-        self.boton2 = Button_v2(master=self,x=50,y=150,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="SCORE",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton1,on_click_param="menu_score")
-        self.boton3 = Button_v2(master=self,x=50,y=250,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 1",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton2,on_click_param="")
-        self.boton4 = Button_v2(master=self,x=50,y=350,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 2",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton3,on_click_param="")
-        self.boton5 = Button_v2(master=self,x=50,y=450,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 3",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton4,on_click_param="")
+        self.boton1 = Button_v2(master=self,x=110,y=150,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="OPCIONES",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton1,on_click_param="menu_opciones")
+        self.boton2 = Button_v2(master=self,x=110,y=250,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="SCORE",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton1,on_click_param="menu_score")
+        self.boton3 = Button_v2(master=self,x=110,y=350,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 1",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton2,on_click_param="")
+        self.boton4 = Button_v2(master=self,x=110,y=450,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 2",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton3,on_click_param="")
+        self.boton5 = Button_v2(master=self,x=110,y=550,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="NIVEL 3",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton4,on_click_param="")
 
         self.lista_widget = [self.boton1,self.boton2,self.boton3,self.boton4,self.boton5]
         self.bandera_nivel = True

@@ -41,7 +41,7 @@ class Finalizador():
         '''
         fuente = pygame.font.SysFont("Arial",30)
         texto = fuente.render("Tiempo restante: {0}".format(self.tiempo_de_juego),True,(0,0,0))
-        screen.blit(texto,(1200,30))
+        screen.blit(texto,(30,760))
 
 
     def update(self,delta_ms,screen):

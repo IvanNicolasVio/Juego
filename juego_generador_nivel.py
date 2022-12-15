@@ -12,7 +12,7 @@ from juego_finalizador import *
 from juego_boton import *
 from juego_form import *
 from juego_sounds import *
-from trampas import *
+from juego_trampa import *
 
 
 class Nivel():
@@ -34,11 +34,11 @@ class Nivel():
         self.frutas = Frutas()
         self.trunk = Generador_trunk(self.parametro_trunk["speed_walk"],self.parametro_trunk["gravity"])
         self.radish = Generador_radish(self.parametro_radish["cantidad"],self.parametro_radish["x"],self.parametro_radish["y"],self.parametro_radish["speed"],self.parametro_radish["tope_izq"],self.parametro_radish["tope_der"],self.parametro_radish["gravity"])
-        self.items_en_pantalla  = items_pantalla(0,0,self.player_1.vidas)
+        self.items_en_pantalla  = items_pantalla(0,700,self.player_1.vidas)
         self.finalizador_juego = Finalizador(self.configuraciones_completas[nivel]["tiempo_juego"])
         self.imagen_fondo = pygame.image.load(self.parametro_imagen_fondo)
         self.menu_perder = menu_perder
-        self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
+        self.boton1 = ButtonScreen(master=screen,x=1410,y=734,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
         self.sonido = sonido
         self.cancion = cancion
         self.lista_trunk = [0]

@@ -64,7 +64,7 @@ class items_pantalla():
 
         fuente = pygame.font.SysFont("Arial",30)
         texto = fuente.render("Score: {0}".format(jugador.score),True,(0,0,0))
-        screen.blit(texto,(1200,0))
+        screen.blit(texto,(30,730))
 
         #self.tiempo_de_nivel(delta_ms,screen)
             
