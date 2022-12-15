@@ -24,8 +24,10 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 * El personaje se controla con las flechas del teclado, se dispara con la tecla "Z", se recarga con la letra "R", y se salta con la tecla "SPACE"
 * Dos clases de enemigos: El primero con capacidad de disparar y patrullar las plataformas en donde se situa. El segundo rebota en dos parametros de la pantalla, quitando vida cuando colisiona con el jugador
 * Interfaz grafica situada en la esquina inferior izquierda, muesta las vidas del jugador, el tiempo restante y el puntaje obtenido
+* Boton de pausa en el juego, situado en la esquina inferior derecha
 * Menu de opciones donde se puede activar y desactivar el sonido y la musica
 * Menu de puntuaciones mas altas
+
 
 <h3> BUGS </h3>
 
