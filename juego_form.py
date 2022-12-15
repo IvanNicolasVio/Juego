@@ -252,7 +252,7 @@ class MenuPerder(Form):
         self.boton1 = Button_v2(master=self,x=50,y=50,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="MENU",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton1,on_click_param="menu_principal")
         self.boton2 = Button_v2(master=self,x=50,y=250,w=200,h=50,color_background=None,color_border=None,image_background="images\\images\\gui\\jungle\\bubble\\bgload.png",text="INGRESAR",font="Verdana",font_size=30,font_color=WHITE,on_click=self.on_click_boton2,on_click_param="")
         self.text_box = TextBox(master=self,x=50,y=150,w=200,h=50,color_background=None,color_border=None,image_background=PATH_IMAGE + "images\\images\\gui\\set_gui_01\\Comic_Border\\Buttons\\Button_XL_08.png",text="Text",font="Verdana",font_size=30,font_color=BLACK,nombre=None)
-                                #self,master,x=0,y=0,w=200,h=50,color_background=BLUE,color_border=BLUE,image_background=None,text="Button",font="Arial",font_size=14,font_color=BLACK,on_click=None,on_click_param=None
+        
         self.nombre = self.text_box.nombre
         self.bandera_ingresar_nombre = False
         self.lista_widget = [self.boton1,self.text_box,self.boton2]
@@ -261,7 +261,14 @@ class MenuPerder(Form):
         self.set_active(parametro)
 
     def on_click_boton2(self, parametro):
-        self.bandera_ingresar_nombre = True
+        if not self.boton2.bandera_para_bloquear:
+            self.bandera_ingresar_nombre = True
+            self.boton2.bandera_para_bloquear = True
+            self.boton2._text = "INGRESADO"
+    
+    def reiniciar_boton(self):
+        self.boton2._text = "INGRESAR"
+        self.boton2.bandera_para_bloquear = False
         
     def update(self, lista_eventos):
         for aux_boton in self.lista_widget:
@@ -270,13 +277,9 @@ class MenuPerder(Form):
 
     def draw(self): 
         super().draw()
-        for aux_boton in self.lista_widget:    
+        for aux_boton in self.lista_widget:  
             aux_boton.draw()
 
-    def mostrar_score(self):
-        fuente = pygame.font.SysFont("Arial",100)
-        texto = fuente.render("Score: {0}".format(self.player.score),True,(0,0,0))
-        self.blit(texto,(50,330))
 
 class MenuScore(Form):
     '''

@@ -48,6 +48,7 @@ while True:
         menu_principal.update(lista_eventos)
         menu_principal.draw()
         menu_principal.bandera_nivel = True
+        menu_perder.reiniciar_boton()
         sonido.cancion.stop()
     elif(menu_opciones.active):
         menu_opciones.update(lista_eventos)

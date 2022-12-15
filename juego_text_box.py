@@ -12,6 +12,7 @@ class TextBox(Widget2):
         self.state = M_STATE_NORMAL
         self.writing_flag = False
         self.nombre = nombre
+        self.bandera_para_bloquear = False
         self.render()
         
     def render(self):
