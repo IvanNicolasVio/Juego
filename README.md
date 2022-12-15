@@ -13,7 +13,7 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 
 <h3> Nivel 1 GAMEPLAY </h3>
 
-* https://youtu.be/3RYRPKC1BuY
+* https://youtu.be/XIeRp5eTkwE
 
 <h3> Nivel 2 </h3>
 
