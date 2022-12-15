@@ -55,11 +55,6 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 
 * https://www.youtube.com/watch?v=gRpY-ty3alU&ab_channel=KevinVeliz
 
-* Para no tener problemas con las imagenes: se debe cambiar el origen de la constante PATH a la direccion donde esta la carpeta Juego
-    
-Ejemplo:
-
-![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/EJEMPLO%20PATH%20IMAGE.png)
 
 El juego se inica desde la carpeta **juego_main.py**
 
