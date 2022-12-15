@@ -27,7 +27,7 @@ def actualizar_base_datos(name,player_1,nivel):
 
 def eliminar_filas(id):
     with sqlite3.connect("score.db") as conexion:
-            sentencia = "DELETE FROM jugadores WHERE id=?"
+            sentencia = "DELETE FROM jugadores WHERE score=?"
             conexion.execute(sentencia,(id,))
 
 
@@ -45,4 +45,5 @@ def ordenar_score():
             lista_score.append(fila)
 
     return lista_score
+
 

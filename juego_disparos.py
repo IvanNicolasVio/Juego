@@ -112,7 +112,7 @@ class lista_balas():
                         enemigo.vitality = False
                         bala.bandera_disp = False
                         self.lista_balas_usadas.remove(bala)
-                        player.score += 1000 
+                        player.score += 300
                         sound.play_sound(ROOT + "Sonidos\\Muerte-enemigo.wav")
 
                         if enemigo.poder_disparar:
