@@ -81,7 +81,7 @@
     }
     ,
     "nivel_2":{
-        "imagen_fondo": "first_images\\locations\\forest\\all.png",
+        "imagen_fondo": "first_images\\locations\\city\\all.png",
 
         "tiempo_juego": 15,
         
@@ -154,7 +154,7 @@
     }
     ,
     "nivel_3":{
-        "imagen_fondo": "first_images\\locations\\mountain\\all.png",
+        "imagen_fondo": "first_images\\locations\\city\\all.png",
 
         "tiempo_juego": 15,
         
