@@ -41,6 +41,8 @@ class Nivel():
         self.boton1 = ButtonScreen(master=screen,x=1150,y=20,w=50,h=50,color_background=BLACK,color_border=BLACK,on_click=menu_pausa.on_click_boton1,on_click_param="menu_pausa",text=" P",font="Verdana",font_size=30,font_color=WHITE)
         self.sonido = sonido
         self.cancion = cancion
+        self.lista_trunk = [0]
+        self.lista_frutas = [1]
 
 
 
@@ -74,7 +76,7 @@ class Nivel():
         screen.blit(self.imagen_fondo,self.imagen_fondo.get_rect())
         finalizador = self.finalizador_juego.update(delta_ms,screen)
 
-        if not finalizador or self.player_1.vidas == 0:
+        if (not finalizador or self.player_1.vidas == 0) or (self.lista_frutas == [] and self.lista_trunk == []):
             fuente = pygame.font.SysFont("Arial",100)
             texto = fuente.render("Score: {0}".format(self.player_1.score),True,RED)
             screen.blit(texto,(500,130))
@@ -92,6 +94,8 @@ class Nivel():
             lista_frutas = self.frutas.update(self.lista_plataformas,screen)
             lista_trunk = self.trunk.update(self.lista_plataformas,screen,delta_ms,self.player_1)
             lista_radish = self.radish.update(delta_ms,self.lista_plataformas,screen,self.player_1)
+            self.lista_frutas = lista_frutas
+            self.lista_trunk = lista_trunk 
 
             for enemigo in lista_trunk:
                 self.lista_balas_de_enemigo = self.lista_de_balas_enemigos.update(enemigo,screen,self.player_1,lista_trunk,delta_ms,self.sonido)
