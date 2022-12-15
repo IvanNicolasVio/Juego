@@ -223,6 +223,7 @@ class Player:
             if(self.rect.colliderect(enemigo.rect) and self.tiempo_transcurrido >= 1800) and enemigo.vitality:  
                 self.tiempo_transcurrido = 0
                 self.bandera_lastimarse = True
+
         
     def colisionar_con_balas(self,lista_balas,delta_ms):
         if lista_balas == []:

@@ -115,6 +115,10 @@ class lista_balas():
                         player.score += 100 
                         sound.play_sound(PATH_IMAGE + "Sonidos\\Muerte-enemigo.wav")
 
+                        if enemigo.poder_disparar:
+                            for bala in enemigo.balas_usadas:
+                                bala.vitality = False
+
 
     def eventos(self,events):
         '''
