@@ -10,6 +10,11 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 <h3> Nivel 1 </h3>
 
 ![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/NIVEL%201.png)
+
+<h3> Nivel 1 GAMEPLAY </h3>
+
+* https://youtu.be/3RYRPKC1BuY
+
 <h3> Nivel 2 </h3>
 
 ![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/NIVEL%202.png)
