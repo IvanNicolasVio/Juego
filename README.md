@@ -14,9 +14,6 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 
 ![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/NIVEL%202.png)
 
-<h3> GAMEPLAY NIVEL 1 </h3>
-
-
 <h3> Datos del nivel </h3>
 
 * Graficos 2D
@@ -57,7 +54,7 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
     
 Ejemplo:
 
-![image_text](C:\Users\Iván\Desktop\Juego\Capturas Juego\EJEMPLO PATH IMAGE.png)
+![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/EJEMPLO%20PATH%20IMAGE.png)
 
 El juego se inica desde la carpeta juego_main.py
 
