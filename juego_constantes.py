@@ -31,4 +31,4 @@ M_BRIGHT_CLICK = RED
 
 
 
-PATH_IMAGE = "C:\\Users\\Iván\\Desktop\\Juego\\"
+ROOT = "./"

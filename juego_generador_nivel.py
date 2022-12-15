@@ -21,7 +21,7 @@ class Nivel():
         self.configuraciones_completas = self.leer_archivo()
         self.lista_plataformas = []
         self.lista_trampas = []
-        self.parametro_imagen_fondo = PATH_IMAGE + self.configuraciones_completas[nivel]["imagen_fondo"]
+        self.parametro_imagen_fondo = ROOT + self.configuraciones_completas[nivel]["imagen_fondo"]
         self.parametro_plataformas = self.configuraciones_completas[nivel]["parametros_plataformas"]
         self.parametro_trampas = self.configuraciones_completas[nivel]["parametros_trampas"]
         self.parametro_player_1 = self.configuraciones_completas[nivel]["player_1"]

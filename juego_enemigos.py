@@ -11,8 +11,8 @@ class Radish():
     clase Radish: enemigo que se mueve de izquierda a derecha,con gravedad
     '''
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1,True)
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1,True)
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Radish\\Run (30x38).png",12,1)
         self.frame = 0
         self.animation = self.walk_r
         self.image = self.animation[self.frame]
@@ -146,12 +146,12 @@ class TrunkPatrulla():
     clase Trunk: enemigo que se mueve de izquierda a derecha aleatoriamente,con gravedad y puede disparar
     '''
     def __init__(self,x,y,speed_walk,tope_izq,tope_derecho,gravity):
-        self.idle_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1)
-        self.idle_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1,True)
-        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1,True)
-        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1)
-        self.atk_r = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1,True)
-        self.atk_l = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1)
+        self.idle_l = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1)
+        self.idle_r = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Idle (64x32).png",18,1,True)
+        self.walk_r = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1,True)
+        self.walk_l = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Run (64x32).png",14,1)
+        self.atk_r = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1,True)
+        self.atk_l = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Enemies\\Trunk\\Attack (64x32).png",11,1)
         self.frame = 0
         self.animation = self.walk_r
         self.image = self.animation[self.frame]

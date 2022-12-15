@@ -9,7 +9,7 @@ class Saw():
     clase Saw: Cierra utilizada como trampa,estatica que lastima al jugador
     '''
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Traps\\Saw\\On (38x38).png",8,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Traps\\Saw\\On (38x38).png",8,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]

@@ -9,7 +9,7 @@ class Manzana():
     clase Manzana: coleccionable utilizado para generar puntos, se dibuja y tiene animacion
     '''
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Items\\Fruits\\Apple.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
@@ -59,7 +59,7 @@ class Banana(Manzana):
     hereda la clase Manzana
     '''
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Bananas.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Items\\Fruits\\Bananas.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
@@ -76,7 +76,7 @@ class Cherry(Manzana):
     hereda la clase Manzana
     '''
     def __init__(self,x,y) -> None:
-        self.idle = Auxiliar.getSurfaceFromSpriteSheet(PATH_IMAGE + "Recursos_pixel\\Items\\Fruits\\Cherries.png",17,1)
+        self.idle = Auxiliar.getSurfaceFromSpriteSheet(ROOT + "Recursos_pixel\\Items\\Fruits\\Cherries.png",17,1)
         self.frame = 0
         self.animation = self.idle
         self.image = self.animation[self.frame]
