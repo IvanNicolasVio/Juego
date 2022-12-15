@@ -1,4 +1,4 @@
-#### <h1 align="center">Hola 👋 , soy Ivan</h1>
+#### <h1 align="center">Hola 👋 , soy Ivan👋</h1>
 #### <h3 align="center">Estoy aprendiendo a programar en Argentina</h3>
 
 <h3> Introduccion </h3>
@@ -42,9 +42,9 @@ Turnate para jugar con tus amigos y trata de conseguir el mayor puntaje!
 
 <h3> Tecnologias usadas </h3>
 
-* Python
-* Pygame
-* SQLITE
+* **Python**
+* **Pygame**
+* **SQLITE**
 
 <h3> Instalacion </h3>
 
@@ -56,7 +56,7 @@ Ejemplo:
 
 ![image_text](https://github.com/IvanNicolasVio/Juego/blob/main/Capturas%20Juego/EJEMPLO%20PATH%20IMAGE.png)
 
-El juego se inica desde la carpeta juego_main.py
+El juego se inica desde la carpeta **juego_main.py**
 
 
 <h3> SOBRE MI </h3>
@@ -66,5 +66,5 @@ El juego se inica desde la carpeta juego_main.py
 <h3> CONTACTOS </h3>
 
 * 📫 **vioivan10@gmail.com**
-* 📫 https://github.com/IvanNicolasVio
-* 📫 Ivan Nicolas Vio#2369 En Discord
+* 📫 **https://github.com/IvanNicolasVio**
+* 📫 **Ivan Nicolas Vio#2369 En Discord**
